@@ -7,7 +7,7 @@
 
 <!-- Header Carousel -->
 <header id="entrada" class="carousel slide">
-    @if (TempData["LogSuccess"] != null)
+    @if (!User.Identity.IsAuthenticated) // TempData["LogSuccess"] != null
     {
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -39,24 +39,24 @@
     <br />
     <div class="carousel-inner" role="listbox" style="border:ridge">
         <div class="item active">
-            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <img src="~/Imags/banner/banner1.jpg" alt="Chania" />
             <div class="carousel-caption">
             </div>
         </div>
         <div class="item">
-            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
-            <div class="carousel-caption">
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <img src="~/Imags/banner/banner2.png" alt="Chania" />
             <div class="carousel-caption">
             </div>
         </div>
 
         <div class="item">
-            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <img src="~/Imags/banner/banner3.jpg" alt="Chania" />
+            <div class="carousel-caption">
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="~/Imags/banner/banner4.jpg" alt="Chania" />
             <div class="carousel-caption">
             </div>
         </div>

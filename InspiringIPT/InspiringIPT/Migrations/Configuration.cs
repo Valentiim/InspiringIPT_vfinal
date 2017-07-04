@@ -48,22 +48,7 @@ namespace InspiringIPT.Migrations
             escolas.ForEach(ee => context.Escola.AddOrUpdate(e => e.NomeEscola, ee));
             context.SaveChanges();
 
-            //########################################################
-            //adiciona Cursos
-            var cursos = new List<Cursos>
-            {
-
-                new Cursos {CursoID=1, NomeCurso="Engenharia Informática", SiglaCurso="EI", Descricao="Falta descrever", EscolaFK=1, AreaFK=1,TipoCursoFK=1},
-                new Cursos {CursoID=2, NomeCurso="Gestão Turística e Cultural", SiglaCurso="GTC", Descricao="Falta descrever",EscolaFK=3, AreaFK=2,TipoCursoFK=2},
-                new Cursos {CursoID=3, NomeCurso="Design e Tecnologia das Artes Gráficas", SiglaCurso="DTAG", Descricao="Falta descrever",EscolaFK=2, AreaFK=4,TipoCursoFK=3},
-                new Cursos {CursoID=4, NomeCurso="Engenharia Eletrot. e de Computadores", SiglaCurso="EEC", Descricao="Falta descrever", EscolaFK=3, AreaFK=3,TipoCursoFK=1}
-
-            };
-            cursos.ForEach(cc => context.Cursos.AddOrUpdate(c => c.NomeCurso, cc));
-            context.SaveChanges();
-
             
-
             //########################################################
             //adiciona as outras areas 
             var outrasareas = new List<OutrasAreas> {
@@ -87,33 +72,33 @@ namespace InspiringIPT.Migrations
             outroscursos.ForEach(oc => context.OutrosCursos.Add(oc));
             context.SaveChanges();
 
+            //###############################################################3
+            //adiciona Cursos A (M)
+            var cursos = new List<Cursos>
+            {
+
+                new Cursos {CursoID=1, NomeCurso="Engenharia Informática", SiglaCurso="EI", Descricao="Falta descrever", EscolaFK=1, AreaFK=1,TipoCursoFK=1},
+                new Cursos {CursoID=2, NomeCurso="Gestão Turística e Cultural", SiglaCurso="GTC", Descricao="Falta descrever",EscolaFK=3, AreaFK=2,TipoCursoFK=2},
+                new Cursos {CursoID=3, NomeCurso="Design e Tecnologia das Artes Gráficas", SiglaCurso="DTAG", Descricao="Falta descrever",EscolaFK=2, AreaFK=4,TipoCursoFK=3},
+                new Cursos {CursoID=4, NomeCurso="Engenharia Eletrot. e de Computadores", SiglaCurso="EEC", Descricao="Falta descrever", EscolaFK=3, AreaFK=3,TipoCursoFK=1}
+
+            };
+            cursos.ForEach(cc => context.Cursos.AddOrUpdate(c => c.CursoID, cc));
+            context.SaveChanges();
+
             ////########################################################
-            ////adiciona os Potenciais Alunos
+            ////adiciona os Potenciais Alunos B (N)
             var potencialaluno = new List<PotencialAluno>
             {
-               //new PotencialAluno {AlunoID=1, NomeCompleto="Arruá Valentim Afonso",Email="arrua.afonso@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(1999,02,04),Contacto="967325844",Genero="Masculino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="Licenciatura", AreasFK =  1,  CursosFK = 1, TiposCursosFK= 1},
-                //new PotencialAluno {AlunoID=2, NomeCompleto="João Gomes Cravid",Email="jgomesc@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(2000,02,04),Contacto="910202099",Genero="Masculino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="Licenciatura",  AreasFK =  4, CursosFK = 2, TiposCursosFK= 3},
-               // new PotencialAluno {AlunoID=3, NomeCompleto="Paulo Duque Júnior",Email="pauloj@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(2001,02,04),Contacto="967386733",Genero="Masculino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="Licenciatura",  AreasFK =  2, CursosFK = 3, TiposCursosFK= 2},
-                //new PotencialAluno {AlunoID=5, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),Contacto="917834672",Genero="Feminino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="TeSPs",  AreasFK =  3, CursosFK = 4, TiposCursosFK= 4}
+                new PotencialAluno {AlunoID=1, NomeCompleto="Arruá Valentim Afonso",Email="arrua.afonso@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1999,02,04),Contacto="967325844",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[0], cursos[1]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[0], tiposcursos[1]}, ListaAreas= new List<Areas> {areas[0], areas[1]}},
+                new PotencialAluno {AlunoID=2, NomeCompleto="João Gomes Cravid",Email="jgomesc@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2000,02,04),Contacto="910202099",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[2], cursos[3]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[2], tiposcursos[3]}, ListaAreas= new List<Areas> {areas[2], areas[3]}},
+                new PotencialAluno {AlunoID=3, NomeCompleto="Paulo Duque Júnior",Email="pauloj@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2001,02,04),Contacto="967386733",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[4], cursos[5]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[4], tiposcursos[5]}, ListaAreas= new List<Areas> {areas[4], areas[5]}},
+                new PotencialAluno {AlunoID=4, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),Contacto="917834672",Genero="F", HabAcademicas="TeSPs", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[6], cursos[7]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[6], tiposcursos[7]}, ListaAreas= new List<Areas> {areas[6], areas[7]}}
+
             };
-            potencialaluno.ForEach(pa => context.PotencialAluno.AddOrUpdate(p => p.NomeCompleto, pa));
+            potencialaluno.ForEach(pa => context.PotencialAluno.AddOrUpdate(p => p.AlunoID, pa));
             context.SaveChanges();
-
-            var colaboradores = new List<Colaboradores>
-            {
-                //new Colaboradores {ColaboradorID=1, NomeProprio="Joana",Apelido="Pinto",NIF="245689402",Localidade="Maria Grande",Contacto="967325844",UserID=""},
-                //new PotencialAluno {AlunoID=2, NomeCompleto="João Gomes Cravid",Email="jgomesc@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(2000,02,04),Contacto="910202099",Genero="Masculino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="Licenciatura",  AreasFK =  4, CursosFK = 2, TiposCursosFK= 3},
-                // new PotencialAluno {AlunoID=3, NomeCompleto="Paulo Duque Júnior",Email="pauloj@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(2001,02,04),Contacto="967386733",Genero="Masculino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="Licenciatura",  AreasFK =  2, CursosFK = 3, TiposCursosFK= 2},
-                //new PotencialAluno {AlunoID=5, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@gmail.com",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),Contacto="917834672",Genero="Feminino", DataInscricao = new DateTime(2017,02,04),HabAcademicas="TeSPs",  AreasFK =  3, CursosFK = 4, TiposCursosFK= 4}
-            };
-            colaboradores.ForEach(cc => context.Colaboradores.AddOrUpdate(c => c.NomeProprio, cc));
-            context.SaveChanges();
-
-
-
-
-
-
+           
 
         }
     }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace InspiringIPT.Models
 {
@@ -42,8 +43,15 @@ namespace InspiringIPT.Models
         public virtual DbSet<TipoCurso> TipoCurso { get; set; }
         public virtual DbSet<OutrasAreas> OutrasAreas { get; set; }
         public virtual DbSet<OutrosCursos> OutrosCursos { get; set; }
-        public virtual DbSet<Colaboradores> Colaboradores { get; set; }                       
+        public virtual DbSet<Colaboradores> Colaboradores { get; set; }
 
-   
-    }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();  // impede a EF de 'pluralizar' os nomes das tabelas
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();  // força a que a chave forasteira não tenha a propriedade 'on delete cascade'
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();  // força a que a chave forasteira não tenha a propriedade 'on delete cascade'
+
+            base.OnModelCreating(modelBuilder);
+
+        }
 }

@@ -1,12 +1,17 @@
-﻿<!DOCTYPE html>
+﻿<!<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - Inspiring IPTomar</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap-datetimepicker.css")
+    @Styles.Render("~/Content/jquery-ui.min.css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.11.4.min.js")
+    @Styles.Render("~/Content/site.css")
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,28 +22,71 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Inspiring IPTomar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <a class="navbar-brand" rel="Index" href="Home" title="Inspiring IPTomar">
+                    <img style="max-width:90px; margin-top: -7px;"src="~/Imags/logotipo.jpg">
+                </a>
+           
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    <li>@Html.ActionLink("Sobre nós", "About", "Home")</li>
+                    <li>@Html.ActionLink("A nossa equipa", "Ipt", "Home")</li>
+                    <li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
+                    <li>@Html.ActionLink("Inscrever", "Inscricao", "Home")</li>
+                    <li>@Html.ActionLink("Notícias", "Noticia", "Home")</li>
+                    <li>@Html.ActionLink("Agenda", "Agenda", "Home")</li>
+
+                        @*utilizador autenticado tem permissão de:*@
+                        @if (User.IsInRole("Colaboradores"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Colaborador<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
+                                    <li>@Html.ActionLink("Alterar Perfil", "Editar", "Colaboradores")</li>
+                                    <li>@Html.ActionLink("Alterar Password", "Index", "Manage")</li>
+                                </ul>
+                            </li>                          
+                        }
+
+                        @*Colaboradores autenticado tem permissão de:*@
+                        @if (User.IsInRole("Gestores"))
+
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestor<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
+                                    <li>@Html.ActionLink("Listar Colaboradores", "Listagem", "Colaboradores")</li>
+                                    <li>@Html.ActionLink("Alterar Perfil", "Editar", "Colaboradores")</li>
+                                    <li>@Html.ActionLink("Alterar Password", "Index", "Manage")</li>
+
+                                </ul>
+                            </li>
+                        }
+
+                    </ul>
+
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content" style="background-color:#FFFFFF">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Inspiring IPTomar</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/jquery-ui.js")
+        @Scripts.Render("~/Scripts/moment.js")
+        @Scripts.Render("~/Scripts/bootstrap-datetimepicker.js")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/Scripts/Apoio.js")
+
+    </body>
 </html>

@@ -1,0 +1,77 @@
+﻿@model InspiringIPT.Models.Cursos
+
+
+<div class="row">
+    <div class="col-sm-14" style="background-color:lavenderblush;">
+        <h2 class="page-header">@ViewBag.Title <small>Adicionar novo Curso<i class="glyphicon glyphicon-book"></i></small></h2>
+    </div>
+    <div class="col-sm-14" style="background-color:lavender">
+
+            @using (Html.BeginForm("Create", "Cursos", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+            
+                <hr />
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NomeCurso, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.NomeCurso, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NomeCurso, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SiglaCurso, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.SiglaCurso, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SiglaCurso, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AreaFK, "Area:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("AreasFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AreaFK, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TipoCursoFK, "Tipo de Curso:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("TiposCursosFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TipoCursoFK, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EscolaFK, "Escola:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("EscolasFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EscolaFK, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @if (User.IsInRole("Gestores"))
+                    {
+                    <div class="form-group" style="text-align:left">
+                        <div class="col-md-offset-4 col-md-6">
+                            <input type="submit" value="Guardar" class="btn btn-success" />
+                            @Html.ActionLink("Lista dos Cursos", "Index", "", new { @class = "btn btn-info" })
+                        </div>
+                    </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+

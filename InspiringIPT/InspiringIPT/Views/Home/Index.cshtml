@@ -1,31 +1,407 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<InspiringIPT.Models.Cursos>
+
+@{
+    ViewBag.Title = "Inspiring IPTomar";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
+<!-- Header Carousel -->
+<header id="entrada" class="carousel slide">
+    @if (TempData["LogSuccess"] != null)
+    {
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header modal-header-success">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@TempData["is"]</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#entrada" data-slide-to="0" class="active"></li>
+        <li data-target="#entrada" data-slide-to="1"></li>
+        <li data-target="#entrada" data-slide-to="2"></li>
+        <li data-target="#entrada" data-slide-to="3"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <br />
+    <div class="carousel-inner" role="listbox" style="border:ridge">
+        <div class="item active">
+            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <div class="carousel-caption">
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <div class="carousel-caption">
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="~/Imags/cara_ipt2.jpg" alt="Chania" />
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#entrada" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#entrada" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    
+</header>
+<br />
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+    <div class="col-lg-12">
     </div>
+
+    @* inicio slide desporto*@
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="cidade" class="carousel slide" data-ride="carousel" style="width:330px;height:185px; border:unset">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#cidade" data-slide-to="0" class="active"></li>
+                        <li data-target="#cidade" data-slide-to="1"></li>
+                        <li data-target="#cidade" data-slide-to="2"></li>
+                        <li data-target="#cidade" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#cidade" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#cidade" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="http://www.iptomarrugby.ipt.pt/?menu=Rugby&lang=pt" style="margin:0px auto;text-align:center;display:block; width:330px;" class="btn btn-success pull-center"> Desporto</a>
+            </div>
+        </div>
     </div>
+    @* fim slide desporto*@
+
+    @* inicio slide cultura*@
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="praias" class="carousel slide" data-ride="carousel" style="width:330px; height:185px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#praias" data-slide-to="0" class="active"></li>
+                        <li data-target="#praias" data-slide-to="1"></li>
+                        <li data-target="#praias" data-slide-to="2"></li>
+                        <li data-target="#praias" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#praias" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#praias" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="http://www.tunatemplaria.com/" style="margin:0px auto; text-align:center; display:block; width:330px;"  class="btn btn-success">Cultura</a>
+            </div>
+        </div>
     </div>
+    @* fim slide cultura*@
+
+    @* inicio slide Associativismo*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="tur" class="carousel slide" data-ride="carousel" style="width:330px; height:185px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#tur" data-slide-to="0" class="active"></li>
+                        <li data-target="#tur" data-slide-to="1"></li>
+                        <li data-target="#tur" data-slide-to="2"></li>
+                        <li data-target="#tur" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#tur" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#tur" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="https://www.facebook.com/uae.ipt/" style="margin:0px auto; text-align:center; display:block; width:330px;"  class="btn btn-success">Associativismo</a>
+            </div>
+        </div>
+    </div>
+    @* fim slide Associativismo*@
+
+    @* GRUPO 2.................................................*@
+
+    @* inicio slide estudar*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="cidade" class="carousel slide" data-ride="carousel" style="width:330px; height:185px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#cidade" data-slide-to="0" class="active"></li>
+                        <li data-target="#cidade" data-slide-to="1"></li>
+                        <li data-target="#cidade" data-slide-to="2"></li>
+                        <li data-target="#cidade" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#cidade" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#cidade" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="http://www.cda.ipt.pt/?pagina=servicos&seccao=Sala_de_leitura" style="margin:0px auto; text-align:center; display:block; width:330px;"  class="btn btn-success">Estudar</a>
+            </div>
+        </div>
+    </div>
+    @* fim slide estudar*@
+
+    @* inicio slide Alimentação*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="praias" class="carousel slide" data-ride="carousel" style="width:330px; height:185px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#praias" data-slide-to="0" class="active"></li>
+                        <li data-target="#praias" data-slide-to="1"></li>
+                        <li data-target="#praias" data-slide-to="2"></li>
+                        <li data-target="#praias" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#praias" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#praias" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="http://portal2.ipt.pt/pt/ipt/servicos_de_acao_social/" style="margin:0px auto; text-align:center; display:block; width:330px;"  class="btn btn-success">Alimentação</a>
+            </div>
+        </div>
+    </div>
+    @* fim slide Alimentação*@
+
+    @* inicio slide Alojamento*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <div id="tur" class="carousel slide" data-ride="carousel" style="width:330px; height:185px">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#tur" data-slide-to="0" class="active"></li>
+                        <li data-target="#tur" data-slide-to="1"></li>
+                        <li data-target="#tur" data-slide-to="2"></li>
+                        <li data-target="#tur" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="~/Imags/campos2.jpg" alt="Chania" />
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#tur" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#tur" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><br />
+                <a href="http://portal2.ipt.pt/pt/ipt/servicos_de_acao_social/apoios_indiretos_alojamento/"  style="margin:0px auto; text-align:center; display:block; width:330px;" class="btn btn-success">Alojamento</a>
+            </div>
+        </div>
+    </div>
+    @* fim slide Alojamento*@
+
+
 </div>

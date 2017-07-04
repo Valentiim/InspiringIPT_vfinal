@@ -1,0 +1,48 @@
+﻿@model InspiringIPT.Models.Colaboradores
+
+
+<div class="row">
+    <div class="col-sm-14" style="background-color:lavenderblush;">
+        <h2 class="page-header">@ViewBag.Title <small> Informações do Colaborador <i class="glyphicon glyphicon-education"></i></small></h2>
+    </div>
+   
+        <div class="col-sm-14" style="background-color:lavender;">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NomeProprio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NomeProprio) @Html.DisplayFor(model => model.Apelido)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NIF)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NIF)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Localidade)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Localidade)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contacto)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Contacto)
+                </dd>
+            </dl>
+            <div class="form-group" style="text-align:left">
+                <div class="col-md-offset-6 col-md-1">
+                    @Html.ActionLink("Alterar os Dados", "Edit", new { id = Model.ColaboradorID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Ver Colaboradores", "Listagem", "", new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+</div>

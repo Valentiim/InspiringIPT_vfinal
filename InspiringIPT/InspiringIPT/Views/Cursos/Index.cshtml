@@ -1,0 +1,82 @@
+﻿@model IEnumerable<InspiringIPT.Models.Cursos>
+
+<div class="row">
+    <div class="col-sm-14" style="background-color:lavenderblush;">
+        <h2 class="page-header">@ViewBag.Title <small> Os nossos Cursos <i class="glyphicon glyphicon-education"></i></small></h2>
+    </div>
+    <div class="col-sm-14" style="background-color:lavender;">
+        <table class="table">
+            <tr>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.NomeCurso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SiglaCurso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AreaFK)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoCursoFK)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EscolaFK)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeCurso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiglaCurso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AreaFK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoCursoFK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EscolaFK)
+                        </td>
+                    }
+                    @*apenas utilizadores do tipo "Gestores", podem atualizar os dados na BD*@
+                    @if (User.IsInRole("Gestores"))
+                    {
+                        <td>
+                            @Html.ActionLink("Atualizar os Dados", "Edit", new { id = item.CursoID }, new { @class = "btn btn-danger" })
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+        @*apenas utilizadores do tipo "Gestores", podem adicionar um novo curso a BD*@
+        @if (User.IsInRole("Gestores"))
+        {
+            <div class="row">
+                <div class="col-sm-4">
+                    @Html.ActionLink("Adicionar novo Curso", "Create","", new { @class = "btn btn-success" })
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+

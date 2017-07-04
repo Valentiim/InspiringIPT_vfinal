@@ -29,7 +29,7 @@ namespace InspiringIPT
             var myMessage = new SendGridMessage();
             myMessage.AddTo(message.Destination);
             myMessage.From = new System.Net.Mail.MailAddress(
-                                "arrua.afonso@gmail.com", "Inspiring IPTomar");
+                                "arrua.ti2@gmail.com", "Inspiring IPTomar");
             myMessage.Subject = message.Subject;
             myMessage.Text = message.Body;
             myMessage.Html = message.Body;

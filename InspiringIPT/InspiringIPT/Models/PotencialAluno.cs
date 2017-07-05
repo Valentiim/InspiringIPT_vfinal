@@ -7,21 +7,24 @@ namespace InspiringIPT.Models
 {
     public partial class PotencialAluno
     {
-        public PotencialAluno(){
+        public PotencialAluno()
+        {
 
-            ListaCursosAreas = new HashSet<Cursos>();
-            ListaAreas_Outras = new HashSet<OutrasAreas>();
-            ListaCursos_Outros = new HashSet<OutrosCursos>();
+            ListaCursos = new HashSet<Cursos>();
+            ListaTipoCurso = new HashSet<TipoCurso>();
+            ListaAreas = new HashSet<Areas>();
+
         }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede o atributo de ser AutoNumber
         public int AlunoID { get; set; }
         public int CursoID { get; set; }
         public int AreaID { get; set; }
         public int TipoID { get; set; }
 
-        [Required (ErrorMessage ="Introduzir o seu nome completo")]
-        //[RegularExpression("[A-ZÉÓÁÍÂ][a-záéíóúàèìòù]+(( [ed][aeo]?(s)?)?[ -'][A-ZÉÓÁÍÂ][a-záéíóúàèìòù]+){1, 4}")]
-        [Display(Name = "Nome:")]
+        [Required(ErrorMessage = "Deve introduzir o {0}...")]
+        [RegularExpression("[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+(( |'|-|( (de|das|dos|e) )|( d'))[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+)*", ErrorMessage = "No '{0}' só pode usar letras. Cada palavra começa com uma letra maiúscula.")]
+        [Display(Name = "Nome do Aluno:")]
         public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "Introduzir um e-mail válido")]
@@ -46,7 +49,7 @@ namespace InspiringIPT.Models
         [StringLength(1)]
         [Display(Name = "Sexo:")]
         public string Genero { get; set; }
-       
+
         [Column(TypeName = "date")]// formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataInscricao { get; set; }  // o '?' torna o preenchimento do atributo facultativo
@@ -72,9 +75,9 @@ namespace InspiringIPT.Models
         public string UserID { get; set; }
 
         //herança
-        public virtual ICollection<Cursos> ListaCursosAreas { get; set; }//associados o objeto potencial aluno existe um objeto Curso
-        public virtual ICollection<OutrasAreas> ListaAreas_Outras { get; set; } //associados o objeto potencial aluno existe um objeto outras areas
-        public virtual ICollection<OutrosCursos> ListaCursos_Outros { get; set; } //associados o objeto potencial aluno existe um objeto outros cursos
+        public virtual ICollection<Cursos> ListaCursos { get; set; }//associados o objeto potencial aluno existe um objeto Curso
+        public virtual ICollection<TipoCurso> ListaTipoCurso { get; set; } //associados o objeto potencial aluno existe um objeto outras areas
+        public virtual ICollection<Areas> ListaAreas { get; set; } //associados o objeto potencial aluno existe um objeto outros cursos
 
     }
 

@@ -14,8 +14,8 @@ namespace InspiringIPT.Models
 
             // criar o construtor desta classe
             // e carregar a lista dos Cursos
-            Lista1DeCursos = new HashSet<Cursos>();
-            ListaAreas_Outras = new HashSet<OutrasAreas>();
+        ListaPotencialAluno = new HashSet<PotencialAluno>();
+            
         }
         [Key]
         public int AreaID { get; set; }
@@ -23,7 +23,7 @@ namespace InspiringIPT.Models
         public string NomeArea { get; set; }
 
         // especificar que uma Área tem um ou muitos Cursos
-        public ICollection<Cursos> Lista1DeCursos { get; set; }
-        public ICollection<OutrasAreas> ListaAreas_Outras { get; set; }
+
+        public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
     }
 }

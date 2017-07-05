@@ -47,6 +47,7 @@ namespace InspiringIPT.Models
 
         [Required]
         [StringLength(1)]
+        [RegularExpression("M-F")]
         [Display(Name = "Sexo:")]
         public string Genero { get; set; }
 

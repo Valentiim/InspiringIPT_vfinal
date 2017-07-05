@@ -11,8 +11,8 @@ namespace InspiringIPT.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        
-    
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -43,7 +43,7 @@ namespace InspiringIPT.Models
         public virtual DbSet<TipoCurso> TipoCurso { get; set; }
         public virtual DbSet<OutrasAreas> OutrasAreas { get; set; }
         public virtual DbSet<OutrosCursos> OutrosCursos { get; set; }
-        public virtual DbSet<Colaboradores> Colaboradores { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,4 +54,5 @@ namespace InspiringIPT.Models
             base.OnModelCreating(modelBuilder);
 
         }
+    }
 }

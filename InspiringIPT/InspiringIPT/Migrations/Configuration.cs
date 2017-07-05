@@ -73,7 +73,7 @@ namespace InspiringIPT.Migrations
             context.SaveChanges();
 
             //###############################################################3
-            //adiciona Cursos A (M)
+            //adiciona Cursos 
             var cursos = new List<Cursos>
             {
 
@@ -87,7 +87,7 @@ namespace InspiringIPT.Migrations
             context.SaveChanges();
 
             ////########################################################
-            ////adiciona os Potenciais Alunos B (N)
+            ////adiciona os Potenciais Alunos 
             var potencialaluno = new List<PotencialAluno>
             {
                 new PotencialAluno {AlunoID=1, NomeCompleto="Arruá Valentim Afonso",Email="arrua.afonso@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1999,02,04),Contacto="967325844",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[0], cursos[1]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[0], tiposcursos[1]}, ListaAreas= new List<Areas> {areas[0], areas[1]}},

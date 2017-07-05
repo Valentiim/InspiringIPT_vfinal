@@ -16,14 +16,15 @@ namespace InspiringIPT.Models
 
         }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede o atributo de ser AutoNumber
         public int AlunoID { get; set; }
         public int CursoID { get; set; }
         public int AreaID { get; set; }
         public int TipoID { get; set; }
 
-        [Required(ErrorMessage = "Introduzir o seu nome completo")]
-        //[RegularExpression("[A-ZÉÓÁÍÂ][a-záéíóúàèìòù]+(( [ed][aeo]?(s)?)?[ -'][A-ZÉÓÁÍÂ][a-záéíóúàèìòù]+){1, 4}")]
-        [Display(Name = "Nome:")]
+        [Required(ErrorMessage = "Deve introduzir o {0}...")]
+        [RegularExpression("[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+(( |'|-|( (de|das|dos|e) )|( d'))[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+)*", ErrorMessage = "No '{0}' só pode usar letras. Cada palavra começa com uma letra maiúscula.")]
+        [Display(Name = "Nome do Aluno:")]
         public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "Introduzir um e-mail válido")]

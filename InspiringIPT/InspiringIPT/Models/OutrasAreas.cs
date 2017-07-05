@@ -35,15 +35,15 @@ namespace InspiringIPT.Models
         //***********************************************************************
         // definição da chave forasteira (FK) que referencia a classe Alunos
         //***********************************************************************
-        [Display(Name = "Potencial Aluno")]
+        [ForeignKey("PotencialAlunoFK")]
         public int PotencialAlunoFK { get; set; }
         public virtual PotencialAluno PotencialAluno { get; set; }
 
         //***********************************************************************
         // definição da chave forasteira (FK) que referencia a classe Áreas
         //***********************************************************************
-        [Display(Name = "Áreas")]
-        public int AreaFK { get; set; }
+        [ForeignKey("AreasFK")]
+        public int AreasFK { get; set; }
         public virtual Areas Areas { get; set; }
         //***********************************************************************
     }

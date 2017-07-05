@@ -92,7 +92,7 @@ namespace InspiringIPT
                 roleManager.Create(role);
 
                 // criar utilizadores do tipo 'GESTOR'
-                string[] loginDosUtilizadores = { "arrua.ti2@ipt.pt", "joana@ipt.pt" };
+                string[] loginDosUtilizadores = { "arrua.ti2@ipt.pt", "joana@ipt.pt", "casimiro@ipt.pt"};
 
                 // define a mesma password para todos
                 string userPWD = "kl096Ab:";

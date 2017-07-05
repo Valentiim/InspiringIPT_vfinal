@@ -13,7 +13,7 @@ namespace InspiringIPT.Models
             ListaCursos = new HashSet<Cursos>();
             ListaTipoCurso = new HashSet<TipoCurso>();
             ListaAreas = new HashSet<Areas>();
-
+            ListaOutrasAreas = new HashSet<OutrasAreas>();
             ListaOutrosCursos = new HashSet<OutrosCursos>();
 
         }
@@ -44,6 +44,7 @@ namespace InspiringIPT.Models
 
         [Required]
         [Display(Name = "Contacto:")]
+        [StringLength(9)]
         [RegularExpression("[0-9]{9}", ErrorMessage = "O Contacto é composto por 9 caracteres Numéricos")]
         public string Contacto { get; set; }
 
@@ -77,12 +78,12 @@ namespace InspiringIPT.Models
         public int TiposCursosFK { get; set; }
         public string UserID { get; set; }
 
-        //herança
+
         public virtual ICollection<Cursos> ListaCursos { get; set; }//associados o objeto potencial aluno existe um objeto Curso
+        public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }//associados o objeto potencial aluno existe um objeto outros cursos
         public virtual ICollection<TipoCurso> ListaTipoCurso { get; set; } //associados o objeto potencial aluno existe um objeto outras areas
         public virtual ICollection<Areas> ListaAreas { get; set; } //associados o objeto potencial aluno existe um objeto outros cursos
-
-        public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }
+        public virtual ICollection<OutrasAreas> ListaOutrasAreas { get; set; }//associados o objeto potencial aluno existe um objeto outras areas
 
     }
 

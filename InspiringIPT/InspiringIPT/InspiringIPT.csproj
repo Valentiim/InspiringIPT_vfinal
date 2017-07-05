@@ -345,8 +345,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Escolas.cs" />
-    <Compile Include="Models\ListaColaboradores.cs" />
     <Compile Include="Models\Listagem.cs" />
     <Compile Include="Models\OutrosCursos.cs" />
     <Compile Include="Models\PotencialAluno.cs" />

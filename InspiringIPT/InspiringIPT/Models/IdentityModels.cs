@@ -44,7 +44,6 @@ namespace InspiringIPT.Models
         public virtual DbSet<OutrasAreas> OutrasAreas { get; set; }
         public virtual DbSet<OutrosCursos> OutrosCursos { get; set; }
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();  // impede a EF de 'pluralizar' os nomes das tabelas
@@ -54,5 +53,6 @@ namespace InspiringIPT.Models
             base.OnModelCreating(modelBuilder);
 
         }
+
     }
 }

@@ -52,10 +52,10 @@ namespace InspiringIPT.Migrations
             //########################################################
             //adiciona as outras areas 
             var outrasareas = new List<OutrasAreas> {
-                new OutrasAreas  {OutrasID = 1, DescriArea = "Falta descrever", PotencialAlunoFK=1, AreaFK=1},
-                new OutrasAreas  {OutrasID = 2, DescriArea = "Falta descrever", PotencialAlunoFK=3, AreaFK=2},
-                new OutrasAreas  {OutrasID = 3, DescriArea = "Falta descrever", PotencialAlunoFK=2, AreaFK=3},
-                new OutrasAreas  {OutrasID = 4, DescriArea = "Falta descrever", PotencialAlunoFK=1, AreaFK=4}
+                new OutrasAreas  {OutrasID = 1, DescriArea = "Falta descrever", PotencialAlunoFK=1, AreasFK=1},
+                new OutrasAreas  {OutrasID = 2, DescriArea = "Falta descrever", PotencialAlunoFK=3, AreasFK=2},
+                new OutrasAreas  {OutrasID = 3, DescriArea = "Falta descrever", PotencialAlunoFK=2, AreasFK=3},
+                new OutrasAreas  {OutrasID = 4, DescriArea = "Falta descrever", PotencialAlunoFK=1, AreasFK=4}
             };
 
             outrasareas.ForEach(oa => context.OutrasAreas.Add(oa));
@@ -101,7 +101,7 @@ namespace InspiringIPT.Migrations
                 ListaTipoCurso = new List<TipoCurso> {tiposcursos[4], tiposcursos[5]}, ListaAreas= new List<Areas> {areas[4], areas[5]}, AreasFK =  2, CursosFK = 3, TiposCursosFK= 2},
                 new PotencialAluno {AlunoID=4, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),
                 Contacto ="917834672",Genero="F", HabAcademicas="TeSPs", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[6], cursos[7]},
-                ListaTipoCurso = new List<TipoCurso> {tiposcursos[6], tiposcursos[7]}, ListaAreas= new List<Areas> {areas[6], areas[7]}, AreasFK =  3, CursosFK = 4, TiposCursosFK= 4}
+                 ListaTipoCurso = new List<TipoCurso> {tiposcursos[6], tiposcursos[7]}, ListaAreas= new List<Areas> {areas[6], areas[7]}, AreasFK =  3, CursosFK = 4, TiposCursosFK= 4}
 
             };
             potencialaluno.ForEach(pa => context.PotencialAluno.AddOrUpdate(p => p.AlunoID, pa));

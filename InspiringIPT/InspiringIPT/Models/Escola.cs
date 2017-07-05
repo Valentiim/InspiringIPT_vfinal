@@ -14,7 +14,7 @@ namespace InspiringIPT.Models
 
             // criar o construtor desta classe
             // e carregar a lista dos Cursos
-            Lista2DeCursos = new HashSet<Cursos>();
+            ListaCursos = new HashSet<Cursos>();
         }
         [Key]
         public int EscolaID { get; set; }
@@ -24,7 +24,7 @@ namespace InspiringIPT.Models
         public string SiglaEscola { get; set; }
 
         // especificar que uma Escola tem um ou muitos Cursos
-        public ICollection<Cursos> Lista2DeCursos { get; set; }
+        public ICollection<Cursos> ListaCursos { get; set; }
 
     }
 }

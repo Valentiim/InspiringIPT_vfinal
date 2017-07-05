@@ -15,6 +15,9 @@ namespace InspiringIPT.Models
             // criar o construtor desta classe
             // e carregar a lista dos Cursos
             ListaPotencialAluno = new HashSet<PotencialAluno>();
+
+            ListaOutrosCursos = new HashSet<OutrosCursos>();
+
         }
         [Key]
         public int TipoID { get; set; }
@@ -23,6 +26,8 @@ namespace InspiringIPT.Models
 
         // especificar que um Tipo de Curso tem nenhum ou muitos Cursos
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
+
+        public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }
 
     }
 }

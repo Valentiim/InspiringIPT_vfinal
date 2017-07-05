@@ -69,16 +69,16 @@ namespace InspiringIPT
                 string userPWD = "kl096Ab:";
 
                 // criar o utilizador 'Artur Gaspar'
-                var user1 = new ApplicationUser();
-                user1.UserName = "artur@ipt.pt";
-                user1.Email = "artur@ipt.pt";
+                var user = new ApplicationUser();
+                user.UserName = "artur@ipt.pt";
+                user.Email = "artur@ipt.pt";
                 // user.EmailConfirmed = true;
-                var chkUser = userManager.Create(user1, userPWD);
+                var chkUser = userManager.Create(user, userPWD);
 
                 //Adicionar o Utilizador à respetiva ROLE-COLABORADORES
                 if (chkUser.Succeeded)
                 {
-                    var result1 = userManager.AddToRole(user1.Id, "Colaboradores");
+                    var result1 = userManager.AddToRole(user.Id, "Colaboradores");
                 }
             }
             //************************************************  FIM ****************************************************

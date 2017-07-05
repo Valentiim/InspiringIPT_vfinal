@@ -90,10 +90,18 @@ namespace InspiringIPT.Migrations
             ////adiciona os Potenciais Alunos 
             var potencialaluno = new List<PotencialAluno>
             {
-                new PotencialAluno {AlunoID=1, NomeCompleto="Arruá Valentim Afonso",Email="arrua.afonso@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1999,02,04),Contacto="967325844",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[0], cursos[1]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[0], tiposcursos[1]}, ListaAreas= new List<Areas> {areas[0], areas[1]}},
-                new PotencialAluno {AlunoID=2, NomeCompleto="João Gomes Cravid",Email="jgomesc@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2000,02,04),Contacto="910202099",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[2], cursos[3]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[2], tiposcursos[3]}, ListaAreas= new List<Areas> {areas[2], areas[3]}},
-                new PotencialAluno {AlunoID=3, NomeCompleto="Paulo Duque Júnior",Email="pauloj@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2001,02,04),Contacto="967386733",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[4], cursos[5]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[4], tiposcursos[5]}, ListaAreas= new List<Areas> {areas[4], areas[5]}},
-                new PotencialAluno {AlunoID=4, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),Contacto="917834672",Genero="F", HabAcademicas="TeSPs", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[6], cursos[7]}, ListaTipoCurso= new List<TipoCurso> {tiposcursos[6], tiposcursos[7]}, ListaAreas= new List<Areas> {areas[6], areas[7]}}
+                new PotencialAluno {AlunoID=1, NomeCompleto="Arruá Valentim Afonso",Email="arrua.afonso@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1999,02,04),
+                Contacto ="967325844",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[0], cursos[1]},
+                ListaTipoCurso = new List<TipoCurso> {tiposcursos[0], tiposcursos[1]}, ListaAreas= new List<Areas> {areas[0], areas[1]}, AreasFK =  1,  CursosFK = 1, TiposCursosFK= 1},
+                new PotencialAluno {AlunoID=2, NomeCompleto="João Gomes Cravid",Email="jgomesc@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2000,02,04),
+                Contacto ="910202099",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[2], cursos[3]},
+                ListaTipoCurso = new List<TipoCurso> {tiposcursos[2], tiposcursos[3]}, ListaAreas= new List<Areas> {areas[2], areas[3]},  AreasFK =  4, CursosFK = 2, TiposCursosFK= 3},
+                new PotencialAluno {AlunoID=3, NomeCompleto="Paulo Duque Júnior",Email="pauloj@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(2001,02,04),
+                Contacto ="967386733",Genero="M", HabAcademicas="Licenciatura", DataInscricao = new DateTime(2017,02,04),ListaCursos= new List<Cursos> {cursos[4], cursos[5]},
+                ListaTipoCurso = new List<TipoCurso> {tiposcursos[4], tiposcursos[5]}, ListaAreas= new List<Areas> {areas[4], areas[5]}, AreasFK =  2, CursosFK = 3, TiposCursosFK= 2},
+                new PotencialAluno {AlunoID=4, NomeCompleto="Ana Maria Conceição Lima",Email="a.lima@ipt.pt",Concelho="Tomar",DataNascimento = new DateTime(1988,02,04),
+                Contacto ="917834672",Genero="F", HabAcademicas="TeSPs", DataInscricao = new DateTime(2017,02,04), ListaCursos= new List<Cursos> {cursos[6], cursos[7]},
+                ListaTipoCurso = new List<TipoCurso> {tiposcursos[6], tiposcursos[7]}, ListaAreas= new List<Areas> {areas[6], areas[7]}, AreasFK =  3, CursosFK = 4, TiposCursosFK= 4}
 
             };
             potencialaluno.ForEach(pa => context.PotencialAluno.AddOrUpdate(p => p.AlunoID, pa));

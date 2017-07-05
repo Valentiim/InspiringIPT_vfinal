@@ -14,6 +14,8 @@ namespace InspiringIPT.Models
             ListaTipoCurso = new HashSet<TipoCurso>();
             ListaAreas = new HashSet<Areas>();
 
+            ListaOutrosCursos = new HashSet<OutrosCursos>();
+
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede o atributo de ser AutoNumber
@@ -79,6 +81,8 @@ namespace InspiringIPT.Models
         public virtual ICollection<Cursos> ListaCursos { get; set; }//associados o objeto potencial aluno existe um objeto Curso
         public virtual ICollection<TipoCurso> ListaTipoCurso { get; set; } //associados o objeto potencial aluno existe um objeto outras areas
         public virtual ICollection<Areas> ListaAreas { get; set; } //associados o objeto potencial aluno existe um objeto outros cursos
+
+        public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }
 
     }
 

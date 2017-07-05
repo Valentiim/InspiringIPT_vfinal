@@ -36,14 +36,14 @@ namespace InspiringIPT.Models
         //***********************************************************************
         // definição da chave forasteira (FK) que referencia a classe Tipo do Curso
         //***********************************************************************
-        [ForeignKey("TipoCursoFK")]
+        [ForeignKey("TipoCurso")]
         public int TipoCursoFK { get; set; }
         public TipoCurso TipoCurso { get; set; }
 
         //***********************************************************************
         // definição da chave forasteira (FK) que referencia a classe Tipo do Curso
         //***********************************************************************
-        [ForeignKey("PotencialAlunoFK")]
+        [ForeignKey("PotencialAluno")]
         public int PotencialAlunoFK { get; set; }
         public virtual PotencialAluno PotencialAluno { get; set; }
         //***********************************************************************

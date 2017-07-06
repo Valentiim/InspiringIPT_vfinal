@@ -44,11 +44,11 @@ namespace InspiringIPT.Models
         [ForeignKey("TipoCurso")]
         public int TipoCursoFK { get; set; }
         public TipoCurso TipoCurso { get; set; }
-        [Required(ErrorMessage = "Selecionar uma Escola válida")]
 
         // cria um atributo para funcionar como FK, na BD
         // e relaciona-o com o atributo anterior
         [ForeignKey("Escola")]
+        [Required(ErrorMessage = "Selecionar uma Escola válida")]
         public int EscolaFK { get; set; }
         // **************************
         // criar a chave forasteira

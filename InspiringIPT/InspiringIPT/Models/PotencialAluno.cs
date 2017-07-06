@@ -19,7 +19,7 @@ namespace InspiringIPT.Models
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede o atributo de ser AutoNumber
-        public int AlunoID { get; set; }
+        public int AlunoID { get; set; } 
         public int CursoID { get; set; }
         public int AreaID { get; set; }
         public int TipoID { get; set; }
@@ -49,8 +49,8 @@ namespace InspiringIPT.Models
         public string Contacto { get; set; }
 
         [Required]
-        [StringLength(1)]
-        [RegularExpression("M-F")]
+        [StringLength(1)] //permite apenas um algarismo
+        [RegularExpression("M-F")]  //só aceita letras "M ou F"
         [Display(Name = "Sexo:")]
         public string Genero { get; set; }
 
@@ -62,22 +62,28 @@ namespace InspiringIPT.Models
         [Display(Name = "Habilitação:")]
         public string HabAcademicas { get; set; }
 
-        public Cursos Curso { get; set; }
+        // ********************************************************************++
+        // criar a chave forasteira, e cria um atributo que 
+        // relaciona o objeto "PotencialAluno" com um objeto "Curso"
         [ForeignKey("Curso")]
-        [Display(Name = "Cursos:")]
         public int CursosFK { get; set; }
+        public Cursos Curso { get; set; }
 
-        public Areas Area { get; set; }
+        // ********************************************************************++
+        // criar a chave forasteira, e cria um atributo que 
+        // relaciona o objeto "PotencialAluno" com um objeto "Áreas"
         [ForeignKey("Area")]
-        [Display(Name = "Área:")]
         public int AreasFK { get; set; }
+        public Areas Area { get; set; }
 
+        // ********************************************************************++
+        // criar a chave forasteira, e cria um atributo que 
+        // relaciona o objeto "PotencialAluno" com um objeto "Tipo de Curso"
         public TipoCurso TipoC { get; set; }
         [ForeignKey("TipoC")]
         [Display(Name = "Tipo:")]
         public int TiposCursosFK { get; set; }
         public string UserID { get; set; }
-
 
         public virtual ICollection<Cursos> ListaCursos { get; set; }//associados o objeto potencial aluno existe um objeto Curso
         public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }//associados o objeto potencial aluno existe um objeto outros cursos

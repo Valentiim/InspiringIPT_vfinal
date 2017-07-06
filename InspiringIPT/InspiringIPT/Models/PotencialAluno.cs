@@ -50,7 +50,6 @@ namespace InspiringIPT.Models
 
         [Required]
         [StringLength(1)] //permite apenas um algarismo
-        //[RegularExpression("M-F")]  //só aceita letras "M ou F"
         [Display(Name = "Sexo:")]
         public string Genero { get; set; }
 

@@ -20,34 +20,34 @@ namespace InspiringIPT.Controllers
             return RedirectToAction("Index", "Home");
             //return View();
         }
-        // GET: PotencialAluno/Create
-        public ActionResult Inscricao()
-        {
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
-            ViewBag.CursosFK = new SelectList(db.Cursos, "CursoID", "NomeCurso");
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
-            return View();
-        }
+        //// GET: PotencialAluno/Create
+        //public ActionResult Inscricao()
+        //{
+        //    ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
+        //    ViewBag.CursosFK = new SelectList(db.Cursos, "CursoID", "NomeCurso");
+        //    ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
+        //    return View();
+        //}
 
-        // POST: PotencialAluno/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Inscricao([Bind(Include = "AlunoID,CursoID,AreaID,TipoID,NomeCompleto,Email,Concelho,DataNascimento,Contacto,Genero,DataInscricao,HabAcademicas,CursosFK,AreasFK,TiposCursosFK")] PotencialAluno potencialAluno)
-        {
-            if (ModelState.IsValid)
-            {
-                db.PotencialAluno.Add(potencialAluno);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //// POST: PotencialAluno/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Inscricao([Bind(Include = "AlunoID,CursoID,AreaID,TipoID,NomeCompleto,Email,Concelho,DataNascimento,Contacto,Genero,DataInscricao,HabAcademicas,CursosFK,AreasFK,TiposCursosFK")] PotencialAluno potencialAluno)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.PotencialAluno.Add(potencialAluno);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", potencialAluno.AreasFK);
-            ViewBag.CursosFK = new SelectList(db.Cursos, "CursoID", "NomeCurso", potencialAluno.CursosFK);
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", potencialAluno.TiposCursosFK);
-            return View(potencialAluno);
-        }
+        //    ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", potencialAluno.AreasFK);
+        //    ViewBag.CursosFK = new SelectList(db.Cursos, "CursoID", "NomeCurso", potencialAluno.CursosFK);
+        //    ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", potencialAluno.TiposCursosFK);
+        //    return View(potencialAluno);
+        //}
         //Home/About
         public ActionResult About()
         {

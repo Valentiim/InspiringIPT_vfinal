@@ -29,7 +29,6 @@ namespace InspiringIPT.Controllers
 
 
         // GET: Cursos/Create
-        [Authorize(Roles = "Gestores")]
         public ActionResult Create()
         {
             ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
@@ -62,7 +61,6 @@ namespace InspiringIPT.Controllers
         }
 
         // GET: Cursos/Edit/5
-        [Authorize(Roles = "Gestores")]
         public ActionResult Edit(int? id)
         {
             if (id == null)

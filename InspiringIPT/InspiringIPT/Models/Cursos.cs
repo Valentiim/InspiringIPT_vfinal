@@ -14,7 +14,6 @@ namespace InspiringIPT.Models
             // inicialização da lista de um Curso
             ListaPotencialAluno = new HashSet<PotencialAluno>();
           
-      
         }
         [Key]
         public int CursoID { get; set; }
@@ -35,26 +34,25 @@ namespace InspiringIPT.Models
         // criar a chave forasteira, e cria um atributo
         // relaciona o objeto Cursos com um objeto Área
         [Required(ErrorMessage = "Selecionar uma Área válida")]
-        [ForeignKey("Areas")]
+        //[ForeignKey("Areas")]
         public int AreaFK { get; set; }
         public  Areas Areas { get; set; }
 
 
         [Required(ErrorMessage = "Selecionar uma um Tipo de Curso")]
-        [ForeignKey("TipoCurso")]
+       // [ForeignKey("TipoCurso")]
         public int TipoCursoFK { get; set; }
         public TipoCurso TipoCurso { get; set; }
 
         // cria um atributo para funcionar como FK, na BD
         // e relaciona-o com o atributo anterior
-        [ForeignKey("Escola")]
+        //[ForeignKey("Escola")]
         [Required(ErrorMessage = "Selecionar uma Escola válida")]
         public int EscolaFK { get; set; }
         // **************************
         // criar a chave forasteira
         // relaciona o objeto ANIMAL com um objeto DONO
         public Escola Escola { get; set; }
-
         // um CURSO tem uma coleção de POTENCIAIS ALUNOS
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
        

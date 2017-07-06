@@ -487,12 +487,12 @@
     <Content Include="Views\Cursos\Details.cshtml" />
     <Content Include="Views\Cursos\Edit.cshtml" />
     <Content Include="Views\Cursos\Index.cshtml" />
-    <Content Include="Views\PotencialAluno\Create.cshtml" />
     <Content Include="Views\PotencialAluno\Delete.cshtml" />
     <Content Include="Views\PotencialAluno\Details.cshtml" />
     <Content Include="Views\PotencialAluno\Edit.cshtml" />
     <Content Include="Views\PotencialAluno\Lista.cshtml" />
     <Content Include="Views\Home\Inscricao.cshtml" />
+    <Content Include="Views\PotencialAluno\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

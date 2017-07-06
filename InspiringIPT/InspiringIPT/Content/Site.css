@@ -1,24 +1,33 @@
 ﻿body {
-    padding-top: 40px;
+    padding-top: 60px;
     padding-bottom: 10px;
     background-image:url(/Imags/wallpaperr.jpg);
   
 }
 .navbar-default  .navbar-nav > li > a:hover{
-    background-color:#ff0000;
-    color: #ffffff;
+    background-color:#ffffff;
+    color: black;
 }
 .navbar-default .navbar-nav > li > a:focus, .open{
     color: #ffffff;
 }
+
+.modal-button{
+    background-color:transparent;
+    cursor:pointer;
+    overflow:hidden;
+    width:120px;
+    height:100px;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav  > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: white; /*BACKGROUND color for active*/
     background-color: #0094ff;
 }
 
 .navbar-default {
-    background-color: #4444FF;
-    border-color: #030033;
+    background-color:white;
+    border-color: white;
 }
 textarea {
   width: 100%;
@@ -29,14 +38,14 @@ textarea {
   color: #ffffff;
 }
 .navbar-default .navbar-brand:hover {
-    background-color:#2222FF;
+    background-color:#2222AF;
     color: #ffffff;
 }
 .navbar-nav > li > .dropdown-menu {
     margin-top: 0;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-    background-color: #4444FF;
+    background-color: #fff;
 }
 .nav .caret {
     border-top-color: #FFFFFF;
@@ -55,7 +64,7 @@ textarea {
     border-bottom-color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a{
-   color: white; /*Change active text color here*/
+   color: black; /*Change active text color here*/
  }
 .navbar .nav > li.dropdown.open.active > a:hover, 
 .navbar .nav > li.dropdown.open > a
@@ -64,13 +73,13 @@ textarea {
    background-color: #2222FF;
    border-color: #fff;
 }
-.navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    background-color: #4444FF;
+.navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    background-color: #4444AF;
     color: #ffffff;
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
-    background-color: #2222FF;
+    background-color: #2222Ff;
 }
 
 /* Set padding to keep content from hitting the edges */

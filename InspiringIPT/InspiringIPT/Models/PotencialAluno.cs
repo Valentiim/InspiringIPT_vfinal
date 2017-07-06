@@ -25,7 +25,7 @@ namespace InspiringIPT.Models
         public int TipoID { get; set; }
 
         [Required(ErrorMessage = "Deve introduzir o {0}...")]
-        [RegularExpression("[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+(( |'|-|( (de|das|dos|e) )|( d'))[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+)*", ErrorMessage = "No '{0}' só pode usar letras. Cada palavra começa com uma letra maiúscula.")]
+       // [RegularExpression("[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+(( |'|-|( (de|das|dos|e) )|( d'))[A-Z][a-záéíóúàèìòùâêîôûãõäëïöüñç]+)*", ErrorMessage = "No '{0}' só pode usar letras. Cada palavra começa com uma letra maiúscula.")]
         [Display(Name = "Nome do Aluno:")]
         public string NomeCompleto { get; set; }
 
@@ -45,12 +45,12 @@ namespace InspiringIPT.Models
         [Required]
         [Display(Name = "Contacto:")]
         [StringLength(9)]
-        [RegularExpression("[0-9]{9}", ErrorMessage = "O Contacto é composto por 9 caracteres Numéricos")]
+        //[RegularExpression("[0-9]{9}", ErrorMessage = "O Contacto é composto por 9 caracteres Numéricos")]
         public string Contacto { get; set; }
 
         [Required]
         [StringLength(1)] //permite apenas um algarismo
-        [RegularExpression("M-F")]  //só aceita letras "M ou F"
+        //[RegularExpression("M-F")]  //só aceita letras "M ou F"
         [Display(Name = "Sexo:")]
         public string Genero { get; set; }
 
@@ -65,14 +65,12 @@ namespace InspiringIPT.Models
         // ********************************************************************++
         // criar a chave forasteira, e cria um atributo que 
         // relaciona o objeto "PotencialAluno" com um objeto "Curso"
-        [ForeignKey("Curso")]
         public int CursosFK { get; set; }
         public Cursos Curso { get; set; }
 
         // ********************************************************************++
         // criar a chave forasteira, e cria um atributo que 
         // relaciona o objeto "PotencialAluno" com um objeto "Áreas"
-        [ForeignKey("Area")]
         public int AreasFK { get; set; }
         public Areas Area { get; set; }
 
@@ -80,8 +78,6 @@ namespace InspiringIPT.Models
         // criar a chave forasteira, e cria um atributo que 
         // relaciona o objeto "PotencialAluno" com um objeto "Tipo de Curso"
         public TipoCurso TipoC { get; set; }
-        [ForeignKey("TipoC")]
-        [Display(Name = "Tipo:")]
         public int TiposCursosFK { get; set; }
         public string UserID { get; set; }
 

@@ -13,12 +13,12 @@ namespace InspiringIPT
         {
             ConfigureAuth(app);
 
-            //invocaçã de um método que vai configurar e criar as Roles e os primeiros Utilizadoes
+            //invocação de um método que vai configurar e criar as Roles e os primeiros Utilizadoes
             iniciaAplicacao();
         }
 
         /// <summary>
-        /// cria, caso não existam, as Roles de suporte à aplicação: Veterinario, Funcionario, Dono
+        /// cria, caso não existam, as Roles de suporte à aplicação: Colaboradores, Gestores
         /// cria, nesse caso, também, um utilizador...
         /// </summary>
         private void iniciaAplicacao()
@@ -30,7 +30,8 @@ namespace InspiringIPT
 
             //********************************************** INICIO COLABORADOR1 ************************************************
             // criar a Role 'Colaborador'
-            if (!roleManager.RoleExists("Colaboradores")){
+            if (!roleManager.RoleExists("Colaboradores"))
+            {
                 // não existe a 'role'
                 // então, criar essa role
                 var role = new IdentityRole();
@@ -44,7 +45,7 @@ namespace InspiringIPT
                 var user = new ApplicationUser();
                 user.UserName = "rita@ipt.pt";
                 user.Email = "rita@ipt.pt";
-                // user.EmailConfirmed = true;
+                //user.EmailConfirmed = true;
                 var chkUser = userManager.Create(user, userPWD);
 
                 //Adicionar o Utilizador à respetiva ROLE-COLABORADORES
@@ -92,7 +93,7 @@ namespace InspiringIPT
                 roleManager.Create(role);
 
                 // criar utilizadores do tipo 'GESTOR'
-                string[] loginDosUtilizadores = { "arrua.ti2@ipt.pt", "joana@ipt.pt", "casimiro@ipt.pt"};
+                string[] loginDosUtilizadores = { "arrua.ti2@ipt.pt", "joana@ipt.pt", "casimiro@ipt.pt" };
 
                 // define a mesma password para todos
                 string userPWD = "kl096Ab:";

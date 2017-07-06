@@ -14,6 +14,7 @@ namespace InspiringIPT.Migrations
 
         protected override void Seed(InspiringIPT.Models.ApplicationDbContext context)
         {
+
             //########################################################
             //adiciona as Áreas
             var areas = new List<Areas> {

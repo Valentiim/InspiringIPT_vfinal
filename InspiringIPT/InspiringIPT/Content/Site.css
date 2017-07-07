@@ -12,6 +12,7 @@
     color: #ffffff;
 }
 
+ /*IMAGEM - SOBRE NÓS*/
 .modal-button{
     background-color:transparent;
     cursor:pointer;
@@ -20,6 +21,10 @@
     height:100px;
 }
 
+figure.effect-apollo {
+    background: transparent;
+}
+ /*IMAGEM FIM - SOBRE NÓS*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav  > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: white; /*BACKGROUND color for active*/
     background-color: #0094ff;

@@ -49,7 +49,7 @@ namespace InspiringIPT.Controllers
         //    return View(potencialAluno);
         //}
         //Home/About
-        public ActionResult About()
+        public ActionResult SobreNos()
         {
             ViewBag.Message = "Your application description page.";
 
@@ -64,7 +64,7 @@ namespace InspiringIPT.Controllers
         }
 
         //Home/IPT
-        public ActionResult Ipt()
+        public ActionResult Equipa()
         {
             ViewBag.Message = "Saiba quem somos.";
 

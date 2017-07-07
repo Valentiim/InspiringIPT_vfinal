@@ -408,6 +408,7 @@
     <Content Include="Imags\banner\banner_5.jpg" />
     <Content Include="Imags\banner\banner_6.jpg" />
     <Content Include="Imags\banner\banner_7_.jpg" />
+    <Content Include="Imags\campos.jpg" />
     <Content Include="Imags\cultura\cultura1.jpg" />
     <Content Include="Imags\cultura\cultura2.jpg" />
     <Content Include="Imags\cultura\cultura4.jpg" />
@@ -416,10 +417,20 @@
     <Content Include="Imags\desporto\desporto3.jpg" />
     <Content Include="Imags\desporto\desporto4.jpg" />
     <Content Include="Imags\desporto\desportos.jpg" />
+    <Content Include="Imags\equipa\img1.jpg" />
+    <Content Include="Imags\equipa\img2.jpg" />
+    <Content Include="Imags\equipa\img3.jpg" />
+    <Content Include="Imags\equipa\img4.jpg" />
+    <Content Include="Imags\equipa\img5.jpg" />
+    <Content Include="Imags\equipa\img6.jpg" />
+    <Content Include="Imags\equipa\img7.jpg" />
+    <Content Include="Imags\equipa\img8.jpg" />
+    <Content Include="Imags\equipa\img9.jpg" />
     <Content Include="Imags\estudar\estudar1.jpg" />
     <Content Include="Imags\estudar\estudar2.jpg" />
     <Content Include="Imags\estudar\estudar_3.jpg" />
     <Content Include="Imags\estudar\estudar_4_.jpg" />
+    <Content Include="Imags\logotipo.jpg" />
     <Content Include="Imags\wallpaperr.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -453,7 +464,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\SobreNos.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -475,7 +486,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Ipt.cshtml" />
+    <Content Include="Views\Home\Equipa.cshtml" />
     <Content Include="Views\Home\Noticia.cshtml" />
     <Content Include="Views\Home\Agenda.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -491,8 +502,8 @@
     <Content Include="Views\PotencialAluno\Details.cshtml" />
     <Content Include="Views\PotencialAluno\Edit.cshtml" />
     <Content Include="Views\PotencialAluno\Lista.cshtml" />
-    <Content Include="Views\Home\Inscricao.cshtml" />
     <Content Include="Views\PotencialAluno\Create.cshtml" />
+    <Content Include="Views\Home\Inscricao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

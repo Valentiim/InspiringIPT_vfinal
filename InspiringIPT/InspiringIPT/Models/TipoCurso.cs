@@ -16,18 +16,21 @@ namespace InspiringIPT.Models
             // e carregar a lista dos Cursos
             ListaCursos = new HashSet<Cursos>();
             ListaPotencialAluno = new HashSet<PotencialAluno>();
-            ListaOutrosCursos = new HashSet<OutrosCursos>();
-
         }
+
+
         [Key]
         public int TipoID { get; set; }
-        [Display(Name = "Tipo: ")]
+        [Display(Name = "Tipo de curso: ")]
         public string Tipo { get; set; }
 
-        // especificar que um Tipo de Curso tem nenhum ou muitos Alunos
+        //***************************************************************************
+        // lista de cursos associados ao tipo
         public virtual ICollection<Cursos> ListaCursos { get; set; }
+
+        // especificar que um Tipo de Curso tem um ou muitos Alunos
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
-        public virtual ICollection<OutrosCursos> ListaOutrosCursos { get; set; }
+
 
     }
 }

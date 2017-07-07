@@ -346,14 +346,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Listagem.cs" />
-    <Compile Include="Models\OutrosCursos.cs" />
     <Compile Include="Models\PotencialAluno.cs" />
     <Compile Include="Models\Areas.cs" />
     <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\Escola.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\OutrasAreas.cs" />
     <Compile Include="Models\TipoCurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -364,10 +362,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-InspiringIPT-20170328012618.mdf" />
-    <Content Include="App_Data\aspnet-InspiringIPT-20170328012618_log.ldf">
-      <DependentUpon>aspnet-InspiringIPT-20170328012618.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -431,6 +425,7 @@
     <Content Include="Imags\estudar\estudar_3.jpg" />
     <Content Include="Imags\estudar\estudar_4_.jpg" />
     <Content Include="Imags\logotipo.jpg" />
+    <Content Include="Imags\manutencao.jpg" />
     <Content Include="Imags\wallpaperr.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -504,12 +499,15 @@
     <Content Include="Views\PotencialAluno\Lista.cshtml" />
     <Content Include="Views\PotencialAluno\Create.cshtml" />
     <Content Include="Views\Home\Inscricao.cshtml" />
+    <Content Include="Views\PotencialAluno\ConfirmaAluno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

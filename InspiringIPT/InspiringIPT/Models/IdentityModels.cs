@@ -33,6 +33,8 @@ namespace InspiringIPT.Models
         {
             return new ApplicationDbContext();
         }
+
+
         //**************************
         // adicionar as instruções para criar as 'tabelas'
         // o tipo DbSet para as tabelas. E <Tabela> quer dizer uma coleção
@@ -41,8 +43,6 @@ namespace InspiringIPT.Models
         public virtual DbSet<Areas> Areas { get; set; }
         public virtual DbSet<Escola> Escola { get; set; }
         public virtual DbSet<TipoCurso> TipoCurso { get; set; }
-        public virtual DbSet<OutrasAreas> OutrasAreas { get; set; }
-        public virtual DbSet<OutrosCursos> OutrosCursos { get; set; }
 
     }
 }

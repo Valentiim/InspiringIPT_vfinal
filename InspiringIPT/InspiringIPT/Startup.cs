@@ -29,7 +29,7 @@ namespace InspiringIPT
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
             //********************************************** INICIO COLABORADOR1 ************************************************
-            // criar a Role 'Colaborador'
+            // criar a Role 'Colaborador1'
             if (!roleManager.RoleExists("Colaboradores"))
             {
                 // não existe a 'role'
@@ -48,7 +48,7 @@ namespace InspiringIPT
                 //user.EmailConfirmed = true;
                 var chkUser = userManager.Create(user, userPWD);
 
-                //Adicionar o Utilizador à respetiva ROLE-COLABORADORES
+                //adicionar Utilizador à respetiva ROLE-COLABORADORES
                 if (chkUser.Succeeded)
                 {
                     var result1 = userManager.AddToRole(user.Id, "Colaboradores");
@@ -57,7 +57,7 @@ namespace InspiringIPT
             //********************************************* FIM ********************************************************
 
             //********************************************* INICIO COLABORADOR2 ***************************************
-            // criar a Role 'COLABORADOR'
+            // criar a Role 'COLABORADOR2'
             if (!roleManager.RoleExists("Colaboradores"))
             {
                 // não existe a 'role'

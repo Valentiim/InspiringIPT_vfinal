@@ -13,14 +13,12 @@
     @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/bootstrap.css")
 
-
     <meta name="description" content="The description of my page" />
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,8 +32,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Sobre Nós", "SobreNos", "Home")</li>
                     <li>@Html.ActionLink("A Nossa Equipa", "Equipa", "Home")</li>
-                    <li>@Html.ActionLink("Cursos", "Index", "Cursos")</li>
-                    <li>@Html.ActionLink("Inscrever", "Create", "PotencialAluno")</li>
+                    <li>@Html.ActionLink("Os Nossos Cursos", "Index", "Cursos")</li>
+                    <li>@Html.ActionLink("Inscreve-te", "Create", "PotencialAluno")</li>
                     <li>@Html.ActionLink("Notícias", "Noticia", "Home")</li>
                     <li>@Html.ActionLink("Agenda", "Agenda", "Home")</li>
 
@@ -43,7 +41,7 @@
                     @if (User.IsInRole("Colaboradores"))
                     {
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Colaborador<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-haspopup="true" aria-expanded="false">Colaborador(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
                             </ul>
@@ -54,13 +52,12 @@
                     @if (User.IsInRole("Gestores"))
 
                     {
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestor<span class="caret"></span></a>
+                        <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-expanded="false">Gestor(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
                                 <li>@Html.ActionLink("Adicionar Potencial Aluno", "Create", "PotencialAluno")</li>
                                 <li>@Html.ActionLink("Adicionar Novo Curso", "Create", "Cursos")</li>
-                                <li>@Html.ActionLink("Atualizar Curso", "Edit", "Cursos")</li>
 
                             </ul>
                         </li>

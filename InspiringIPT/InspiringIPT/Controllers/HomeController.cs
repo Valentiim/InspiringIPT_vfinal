@@ -63,7 +63,7 @@ namespace InspiringIPT.Controllers
             return View();
         }
 
-        //Home/IPT
+        //Home/Equipa
         public ActionResult Equipa()
         {
             ViewBag.Message = "Saiba quem somos.";

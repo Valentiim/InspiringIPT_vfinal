@@ -43,8 +43,6 @@
                         @Html.DisplayFor(modelItem => item.Descricao)
                     </td>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <td>
                             @Html.DisplayFor(modelItem => item.AreaFK)
                         </td>
@@ -54,7 +52,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.EscolaFK)
                         </td>
-                    }
+            
                     @*apenas utilizadores do tipo "Gestores", podem atualizar os dados na BD*@
                     @if (User.IsInRole("Gestores"))
                     {

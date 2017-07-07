@@ -20,11 +20,8 @@ namespace InspiringIPT.Controllers
         // GET: PotencialAluno
         public ActionResult Lista()
         {
-           
-            // utilizadores de perfil 'Funcionario' ou
-            // perfil 'Veterinário'
-            if (User.IsInRole("Colaboradores") ||
-              User.IsInRole("Gestores"))
+            //se o utilizador for do tipo "Colaborador" ou do tipo "Gestor" mostra a lista
+            if (User.IsInRole("Colaboradores") || User.IsInRole("Gestores"))
             {
                 var potencialAluno = db.PotencialAluno.Include(p => p.Area).Include(p => p.Curso).Include(p => p.TipoC).OrderByDescending(p => p.DataInscricao);
                 return View(potencialAluno.ToList());
@@ -36,7 +33,7 @@ namespace InspiringIPT.Controllers
         }
 
         // GET: PotencialAluno/Details/5
-        // [Authorize(Roles = "Gestores")]
+        [Authorize(Roles = "Gestores")]
         public ActionResult Details(int? id)
         {
             if (id == null)

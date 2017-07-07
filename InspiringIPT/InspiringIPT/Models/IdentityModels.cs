@@ -35,7 +35,7 @@ namespace InspiringIPT.Models
         }
         //**************************
         // adicionar as instruções para criar as 'tabelas'
-        // o tipo DbSet para as tabelas. E <PotencialAluno> quer dizer uma coleção
+        // o tipo DbSet para as tabelas. E <Tabela> quer dizer uma coleção
         public virtual DbSet<PotencialAluno> PotencialAluno { get; set; }
         public virtual DbSet<Cursos> Cursos { get; set; }
         public virtual DbSet<Areas> Areas { get; set; }

@@ -37,7 +37,7 @@
                     <li>@Html.ActionLink("Notícias", "Noticia", "Home")</li>
                     <li>@Html.ActionLink("Agenda", "Agenda", "Home")</li>
 
-                    @*utilizador autenticado tem permissão de:*@
+                    @*utilizador autenticado como "Colaborador", tem permissão de:*@
                     @if (User.IsInRole("Colaboradores"))
                     {
                         <li class="dropdown">
@@ -56,9 +56,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-expanded="false">Gestor(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
-                                <li>@Html.ActionLink("Adicionar Potencial Aluno", "Create", "PotencialAluno")</li>
-                                <li>@Html.ActionLink("Adicionar Novo Curso", "Create", "Cursos")</li>
-
+                                <li>@Html.ActionLink("Listar Cursos", "Index", "Cursos")</li>
+                                <li>@Html.ActionLink("Listar Tipo Curso", "Index", "TipoCurso")</li>
+                                <li>@Html.ActionLink("Listar Áreas", "Index", "Areas")</li>
+                                <li>@Html.ActionLink("Listar Escolas", "Index", "Escola")</li>
+                              
                             </ul>
                         </li>
                     }

@@ -13,8 +13,8 @@ namespace InspiringIPT.Models
             ListaTipoCurso = new HashSet<TipoCurso>();
             ListaAreas = new HashSet<Areas>();
         }
+
         [Key]
-        // [DatabaseGenerated(DatabaseGeneratedOption.None)] // impede o atributo de ser AutoNumber
         public int AlunoID { get; set; }
 
         [Required(ErrorMessage = "Deve introduzir o {0}...")]
@@ -31,18 +31,17 @@ namespace InspiringIPT.Models
         public string Concelho { get; set; }
 
         [Required]
-        [Display(Name = "D.Nascimento:")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data Nascimento:")]
         [Column(TypeName = "date")] // formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? DataNascimento { get; set; } // o '?' torna o preenchimento do atributo facultativo
+        public DateTime DataNascimento { get; set; } // o '?' torna o preenchimento do atributo facultativo
 
-        // [Required]
         [Display(Name = "Contacto telefónico:")]
         [StringLength(9)]
         //[RegularExpression("[0-9]{9}", ErrorMessage = "O Contacto é composto por 9 caracteres Numéricos")]
         public string Contacto { get; set; }
 
-        //  [Required]
         [StringLength(1)] //permite apenas um algarismo
         [Display(Name = "Sexo:")]
         [RegularExpression("[MF]", ErrorMessage = "No '{0}' só pode usar a letra M ou F.")]
@@ -53,7 +52,7 @@ namespace InspiringIPT.Models
         public string HabAcademicas { get; set; }
 
         //*********************************************************************************************
-
+    
         [Column(TypeName = "date")]// formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataInscricao { get; set; }  // o '?' torna o preenchimento do atributo facultativo

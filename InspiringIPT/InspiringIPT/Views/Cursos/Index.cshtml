@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<InspiringIPT.Models.Cursos>
-
+<br />
 <div class="row">
-    <div class="col-sm-14" style="background-color:lavenderblush;">
-        <h2 class="page-header">@ViewBag.Title <small> Os nossos Cursos <i class="glyphicon glyphicon-education"></i></small></h2>
+    <div class="col-sm-14" style="background-color:lavenderblush; border:double; text-align:center;">
+        <h2 class="page-header">@ViewBag.Title <medium> Os nossos Cursos <i class="glyphicon glyphicon-education"></i></medium></h2>
     </div>
-    <div class="col-sm-14" style="background-color:lavender;">
+    <div class="col-sm-14" style="background-color:lavender; border:double">
         <table class="table">
             <tr>
                 <th>
-
                     @Html.DisplayNameFor(model => model.NomeCurso)
                 </th>
                 <th>

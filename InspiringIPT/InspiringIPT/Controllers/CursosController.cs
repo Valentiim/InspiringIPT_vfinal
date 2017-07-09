@@ -45,14 +45,27 @@ namespace InspiringIPT.Controllers
         [Authorize(Roles = "Gestores")]
         public ActionResult Create([Bind(Include = "CursoID,AreaID,TipoID,EscolaID,NomeCurso,SiglaCurso,Descricao,AreaFK,TipoCursoFK,EscolaFK")] Cursos cursos)
         {
-            if (ModelState.IsValid)
+            try
             {
-                // adiciona o objeto 'Cursos' a base de dados
-                db.Cursos.Add(cursos);
-                //torna a definitiva a adição
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    
+                    TempData["createCurso"] = "Novo Curso adicionado com sucesso!";
+                    // adiciona o objeto 'Cursos' a base de dados
+                    db.Cursos.Add(cursos);
+                    //torna a definitiva a adição
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception)
+            {
+                // não consigo guardar as alterações
+                // No mínimo, preciso de 
+                // notificar o utilizador que o processo falhou
+                ModelState.AddModelError("","Dados incorectos!");
+            }
+            
             ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
             ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
             ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
@@ -86,13 +99,27 @@ namespace InspiringIPT.Controllers
         [Authorize(Roles = "Gestores")]
         public ActionResult Edit([Bind(Include = "CursoID,NomeCurso,SiglaCurso,Descricao,AreaFK,TipoCursoFK,EscolaFK")] Cursos cursos)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(cursos).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    TempData["editCurso"] = "Dado alterado com sucesso!";
+                    db.Entry(cursos).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception)
+            {
+
+                // não consigo guardar as alterações
+                // No mínimo, preciso de 
+                // notificar o utilizador que o processo falhou
+                ModelState.AddModelError("", "Dados incorectos!");
+            }
+
+           
             ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
             ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
             ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);

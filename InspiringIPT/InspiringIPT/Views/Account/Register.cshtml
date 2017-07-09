@@ -1,4 +1,27 @@
 ﻿@model InspiringIPT.Models.RegisterViewModel
+
+
+@if (TempData["RegSuccess"] != null)
+{
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header modal-header-success">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@TempData["Reg"]</h4>
+                </div>
+                <div class="modal-body">
+                    <p>@TempData["RegSuccess"]</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 <div class="row">
     <div class="col-sm-14" style="background-color:lavenderblush;">
         <h2 class="page-header">@ViewBag.Title <small> Iniciar Sessão <i class="glyphicon glyphicon-lock"></i></small></h2>

@@ -1,5 +1,21 @@
 ﻿@model InspiringIPT.Models.Cursos
 
+@if (TempData["editCurso"] != null)
+{
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>@TempData["editCurso"]</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 <div class="row">
     <br />
     <div class="col-sm-14" style="background-color:lavenderblush;">

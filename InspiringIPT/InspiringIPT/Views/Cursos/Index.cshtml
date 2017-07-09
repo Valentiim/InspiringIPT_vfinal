@@ -18,13 +18,13 @@
                     @Html.DisplayNameFor(model => model.Descricao)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.AreaFK)
+                    @Html.DisplayNameFor(model => model.Areas)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TipoCursoFK)
+                    @Html.DisplayNameFor(model => model.TipoCurso)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.EscolaFK)
+                    @Html.DisplayNameFor(model => model.Escola)
                 </th>
 
                 <th></th>
@@ -44,13 +44,13 @@
                     </td>
 
                         <td>
-                            @Html.DisplayFor(modelItem => item.AreaFK)
+                            @Html.DisplayFor(modelItem => item.Areas.NomeArea)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.TipoCursoFK)
+                            @Html.DisplayFor(modelItem => item.TipoCurso.Tipo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.EscolaFK)
+                            @Html.DisplayFor(modelItem => item.Escola.NomeEscola)
                         </td>
             
                     @*apenas utilizadores do tipo "Gestores", podem atualizar os dados na BD*@

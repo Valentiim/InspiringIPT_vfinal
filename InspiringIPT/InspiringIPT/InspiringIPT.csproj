@@ -336,10 +336,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\EscolasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PotencialAlunoController.cs" />
+    <Compile Include="Controllers\TipoCursoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -500,6 +503,21 @@
     <Content Include="Views\PotencialAluno\Create.cshtml" />
     <Content Include="Views\Home\Inscricao.cshtml" />
     <Content Include="Views\PotencialAluno\ConfirmaAluno.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\Details.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Escolas\Create.cshtml" />
+    <Content Include="Views\Escolas\Delete.cshtml" />
+    <Content Include="Views\Escolas\Details.cshtml" />
+    <Content Include="Views\Escolas\Edit.cshtml" />
+    <Content Include="Views\Escolas\Index.cshtml" />
+    <Content Include="Views\TipoCurso\Create.cshtml" />
+    <Content Include="Views\TipoCurso\Delete.cshtml" />
+    <Content Include="Views\TipoCurso\Details.cshtml" />
+    <Content Include="Views\TipoCurso\Edit.cshtml" />
+    <Content Include="Views\TipoCurso\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -69,6 +69,7 @@ namespace InspiringIPT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+           
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -77,9 +78,12 @@ namespace InspiringIPT.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            TempData["is"] = "Iniciar Sessão";
             switch (result)
             {
                 case SignInStatus.Success:
+                    TempData["LogSuccess"] = "Login efectuado com sucesso";
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -87,7 +91,7 @@ namespace InspiringIPT.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    TempData["LogErro"] = "Existiu um erro! Verifique se introduziu os dados correctamente";
                     return View(model);
             }
         }
@@ -107,6 +111,7 @@ namespace InspiringIPT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            TempData["Reg"] = "Registo";
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -117,7 +122,7 @@ namespace InspiringIPT.Controllers
                     /*var colaborador = new Colaboradores { UserID=user.Id, NomeProprio=model.};
                     db.Colaboradores.Add(colaborador);
                     db.SaveChanges();*/
-
+                    TempData["RegSuccess"] = "Registo Efectuado com Sucesso";
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

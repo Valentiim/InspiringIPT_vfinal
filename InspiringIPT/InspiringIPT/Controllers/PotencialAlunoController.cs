@@ -79,10 +79,8 @@ namespace InspiringIPT.Controllers
             int novoID = 0;
             try
             {
-                
-
                 novoID = db.PotencialAluno.Max(d => d.AlunoID) + 1;
-              
+                potencialAluno.AlunoID = novoID;
             }
             catch (System.Exception)
             {

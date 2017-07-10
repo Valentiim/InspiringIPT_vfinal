@@ -30,13 +30,13 @@
                 @Html.DisplayNameFor(model => model.HabAcademicas)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Curso.NomeCurso)
+                @Html.DisplayNameFor(model => model.ListaCursos)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoC.Tipo)
+                @Html.DisplayNameFor(model => model.ListaTipoCurso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Area.NomeArea)
+                @Html.DisplayNameFor(model => model.ListaAreas)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataInscricao)
@@ -68,14 +68,27 @@
                     @Html.DisplayFor(modelItem => item.HabAcademicas)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Curso.NomeCurso)
+                    @foreach (var cursos in item.ListaCursos)
+                    {
+                        @Html.DisplayFor(modelItem => cursos.NomeCurso)
+                        <br />
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TipoC.Tipo)
+                    @foreach (var tipocurso in item.ListaTipoCurso)
+                    {
+                        @Html.DisplayFor(modelItem => tipocurso.Tipo)
+                        <br />
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Area.NomeArea)
+                    @foreach (var areas in item.ListaAreas)
+                    {
+                        @Html.DisplayFor(modelItem => areas.NomeArea)
+                        <br />
+                    }
                 </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.DataInscricao)
                 </td>
@@ -86,4 +99,3 @@
         }
     </table>
 </div>
-

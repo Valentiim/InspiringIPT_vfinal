@@ -17,145 +17,160 @@
         </div>
     </div>
 }
-    <div class="row" style="border:inherit;">
-        <div class="col-sm-14" style="background-color:antiquewhite;text-align:center; border:double;">
-            <h2 class="page-header">@ViewBag.Title <medium> Registo de Potencial Aluno <i class="glyphicon glyphicon-user"></i></medium></h2>
-        </div>
-        <div class="col-sm-14" style="background-color:lavender; border:double">
-            @using (Html.BeginForm())
+<div class="row" style="border:inherit;">
+    <div class="col-sm-14" style="background-color:antiquewhite;text-align:center; border:double;">
+        <h2 class="page-header">@ViewBag.Title <medium> Registo de Potencial Aluno <i class="glyphicon glyphicon-user"></i></medium></h2>
+    </div>
+    <div class="col-sm-14" style="background-color:lavender; border:double">
+        @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <div class="row">
-                        <div class="form-group">
-                            <br />
-                            @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-8">
-                                @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Nome Completo" } })
-                                @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
-                            </div>
+                <div class="row">
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Nome Completo" } })
+                            @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu E-mail" } })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu E-mail" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Concelho, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Concelho, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Concelho" } })
-                                @Html.ValidationMessageFor(model => model.Concelho, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Concelho, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Concelho, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Concelho" } })
+                            @Html.ValidationMessageFor(model => model.Concelho, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir  DD/MM/AAAA" } })
-                                @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir  DD/MM/AAAA" } })
+                            @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Contacto, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Contacto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Contacto" } })
-                                @Html.ValidationMessageFor(model => model.Contacto, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Contacto, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Contacto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Contacto" } })
+                            @Html.ValidationMessageFor(model => model.Contacto, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.RadioButtonFor(model => model.Genero, "M") Masculino <br />
-                                @Html.RadioButtonFor(model => model.Genero, "F") Feminino
-                                @Html.ValidationMessageFor(model => model.Genero, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(model => model.Genero, "M") Masculino <br />
+                            @Html.RadioButtonFor(model => model.Genero, "F") Feminino
+                            @Html.ValidationMessageFor(model => model.Genero, "", new { @class = "text-danger" })
                         </div>
+                    </div>
 
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-4">
-                                @Html.EditorFor(model => model.HabAcademicas, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir a sua Habilitação Académica" } })
-                                @Html.ValidationMessageFor(model => model.HabAcademicas, "", new { @class = "text-danger" })
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "Doutoramento") Doutoramento<br />
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "Grau académico superior estrangeiro") Grau académico superior estrangeiro<br />
+                            @Html.ValidationMessageFor(model => model.HabAcademicas, "", new { @class = "text-danger" })
                         </div>
-
-                        <div class="col-md-4" >
-                            @* listagem dos cursos disponíveis no IPT  *@
-                            <table class="table">
-                                <tr>
-                                    <th>Curso</th>
-                                </tr>
-                                @foreach (var curso in ViewBag.Cursos)
-                                {
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" value="@curso.CursoID" name="ListaDeCursos" /> @curso.NomeCurso
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        </div>
-
-                        <div class="col-md-4">
-                            @* listagem dos cursos disponíveis no IPT  *@
-                            <table class="table">
-                                <tr>
-                                    <th>Área</th>
-                                </tr>
-                                @foreach (var area in ViewBag.Areas)
-                                {
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" value="@area.AreaID" name="ListaDeAreas" /> @area.NomeArea
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        </div>
-
-                        <div class="col-md-4">
-                            @* listagem dos cursos disponíveis no IPT  *@
-                            <table class="table">
-                                <tr>
-                                    <th>Tipo Curso</th>
-                                </tr>
-                                @foreach (var tipocurso in ViewBag.TipoCurso)
-                                {
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" value="@tipocurso.TipoID" name="ListaDeTipoCurso" /> @tipocurso.Tipo
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        </div>
+                    </div>
 
 
-                        @*<br /><br />
+                   
+
+                    <div class="col-md-4">
+                        @* listagem dos Cursos disponíveis no IPT  *@
+                        <table class="table">
+                            <tr>
+                                <th>Cursos</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="selectpicker" name="ListaDeCursos" multiple>
+                                        <option disabled selected value=""> Selecionar Curso(s) </option>
+                                        @foreach (var curso in ViewBag.Cursos)
+                                        {
+                                            <option value="@curso.CursoID"> @curso.NomeCurso</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-md-4">
+                        @* listagem das Áreas disponíveis no IPT  *@
+                        <table class="table">
+                            <tr>
+                                <th>Áreas de Interesse</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="selectpicker" name="ListaDeAreas" multiple>
+                                        <option disabled selected value=""> Selecionar Área(s) </option>
+                                        @foreach (var area in ViewBag.Areas)
+                                        {
+                                            <option value="@area.AreaID"> @area.NomeArea</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-md-4">
+                        @* listagem dos Tipos de Cursos disponíveis no IPT  *@
+                        <table class="table">
+                            <tr>
+                                <th>Tipos de Cursos</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="selectpicker" name="ListaDeTipoCurso" multiple>
+                                        <option disabled selected value=""> Selecionar Tipo(s) Curso(s) </option>
+                                        @foreach (var tipocurso in ViewBag.TipoCurso)
+                                        {
+                                            <option value="@tipocurso.TipoID"> @tipocurso.Tipo</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    @*<br /><br />
                         e se se apresentasse aqui um Captcha?
                         <br /><br />*@
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <br /><br /><br />
-                                <input type="submit" value="Submeter a Inscrição" class="btn btn-success" style="width:305px;height:50px; text-align:center" />
-                                <p></p>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                            <input type="submit" value="Submeter a Pré-inscrição" class="btn btn-success" style="width:305px;height:50px; text-align:center" />
+                            <p></p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            }
-
-        </div>
+        }
 
     </div>
+
+</div>

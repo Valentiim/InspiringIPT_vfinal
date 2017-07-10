@@ -1,14 +1,12 @@
 ﻿@model InspiringIPT.Models.TipoCurso
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Tipo Curso";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>TipoCurso</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Tipo)
@@ -21,6 +19,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TipoID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.TipoID }) |
+    @Html.ActionLink("Voltar a Lista", "Index")
 </p>

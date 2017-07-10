@@ -35,7 +35,7 @@ namespace InspiringIPT.Models
         [Display(Name = "Data Nascimento:")]
         [Column(TypeName = "date")] // formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DataNascimento { get; set; } // o '?' torna o preenchimento do atributo facultativo
+        public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Contacto telefónico:")]
         [StringLength(9)]

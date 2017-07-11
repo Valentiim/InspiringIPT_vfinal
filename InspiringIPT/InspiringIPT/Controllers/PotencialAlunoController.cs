@@ -30,7 +30,7 @@ namespace InspiringIPT.Controllers
         }
 
         // GET: PotencialAluno/Details/5
-        [Authorize(Roles = "Gestores")]
+        [Authorize(Roles = "Gestores,Colaboradores")]
         public ActionResult Details(int? id)
         {
             // avalia se o parâmetro é nulo

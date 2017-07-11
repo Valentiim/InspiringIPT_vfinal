@@ -1,0 +1,70 @@
+﻿@model IEnumerable<InspiringIPT.Models.PotencialAluno>
+
+
+<div class="row">
+    <br /><br />
+    <div class="col-sm-14" style="background-color:antiquewhite;text-align:center;">
+        <h2 class="page-header">@ViewBag.Title <small> Lista dos Potenciais Alunos <i class="glyphicon glyphicon-user"></i></small></h2>
+    </div>
+    <div class="col-sm-14" style="background-color:lavender">
+        @if (Model.Count() > 0)
+            {
+            <table class="table" style="position:center;">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomeCompleto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Concelho)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contacto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataNascimento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HabAcademicas)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataInscricao)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomeCompleto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Concelho)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contacto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataNascimento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HabAcademicas)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataInscricao)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar os Dados", "EditarAluno", new { id = item.AlunoID }, new { @class = "btn btn-danger", @style = "height:30px;width:120px" }) |
+                            @Html.ActionLink("Mais Detalhes", "Details", new { id = item.AlunoID }, new { @class = "btn btn-default btn-success", @style = "height:30px;width:120px" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <b><p style="color:#ff6a00; font-size:30px;"> De momento nãao existem potenciais alunos para mostrar! </p></b>
+        }
+
+    </div>
+</div>

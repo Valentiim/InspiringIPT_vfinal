@@ -38,7 +38,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.AlunoID)
                 @Html.HiddenFor(model => model.CodigoIdentificacao)
-        
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -104,29 +104,97 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ListaCursos, "Cursos:", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("CursosFK", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ListaCursos, "", new { @class = "text-danger" })
-                    </div>
+                <div class="col-md-4">
+                    @* listagem dos Cursos disponíveis no IPT  *@
+                    <table class="table">
+                        <tr>
+                            <th>Cursos</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="selectpicker" name="ListaDeCursos" multiple>
+                                    <option disabled selected value=""> Selecionar Curso(s) </option>
+
+                                    @foreach (var curso in ViewBag.Cursos)
+                                    {
+                                        @* se a lista de curso estiver selecionado *@
+                                        if (Model.ListaCursos.Contains(curso))
+                                        {
+                                            <option value="@curso.CursoID" selected> @curso.NomeCurso</option>
+                                        }
+                                        @* se não, selecionar um curso*@
+                                        else
+                                        {
+                                            <option value="@curso.CursoID"> @curso.NomeCurso</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ListaAreas, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("AreasFK", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ListaAreas, "", new { @class = "text-danger" })
-                    </div>
+                <div class="col-md-4">
+                    @* listagem das Áreas disponíveis no IPT  *@
+                    <table class="table">
+                        <tr>
+                            <th>Áreas de Interesse</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="selectpicker" name="ListaDeAreas" multiple>
+                                    <option disabled selected value=""> Selecionar Área(s) </option>
+
+                                    @foreach (var area in ViewBag.Areas)
+                                    {
+                                        @* se a lista de curso estiver selecionado *@
+                                        if (Model.ListaAreas.Contains(area))
+                                        {
+                                            <option value="@area.AreaID" selected> @area.NomeArea</option>
+                                        }
+                                        @* se não, selecionar um curso*@
+                                        else
+                                        {
+                                            <option value="@area.AreaID"> @area.NomeArea</option>
+                                        }
+
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ListaTipoCurso, "Tipo de Curso:", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("TiposCursosFK", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ListaTipoCurso, "", new { @class = "text-danger" })
-                    </div>
+                <div class="col-md-4">
+                    @* listagem dos Tipos de Cursos disponíveis no IPT  *@
+                    <table class="table">
+                        <tr>
+                            <th>Tipos de Cursos</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="selectpicker" name="ListaDeTipoCurso" multiple>
+                                    <option disabled selected value=""> Selecionar Tipo(s) Curso(s) </option>
+
+                                    @foreach (var tipocurso in ViewBag.TipoCurso)
+                                    {
+                                        if (Model.ListaTipoCurso.Contains(tipocurso))
+                                        {
+                                            <option value="@tipocurso.TipoID" selected> @tipocurso.Tipo</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@tipocurso.TipoID"> @tipocurso.Tipo</option>
+                                        }
+
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+
+
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
@@ -137,7 +205,7 @@
         }
         <div class="btn btn-secondary text-danger" style="height:40px">
             <div>
-                @Html.ActionLink("Listar os Potenciais Alunos", "Lista", "", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Listar os Potenciais Alunos", "Index", "", new { @class = "btn btn-primary" })
             </div>
         </div>
     </div>

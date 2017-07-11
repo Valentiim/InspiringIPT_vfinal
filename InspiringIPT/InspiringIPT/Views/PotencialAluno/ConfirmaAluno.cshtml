@@ -4,14 +4,14 @@
     ViewBag.Title = "Confirma o Potencial Aluno";
 }
 
-@if (TempData["codSucess"] != null)
+@if (TempData["SubmitSucess"] != null)
 {
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>@TempData["codSucess"]</p>
+                    <p>@TempData["SubmitSucess"]</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>

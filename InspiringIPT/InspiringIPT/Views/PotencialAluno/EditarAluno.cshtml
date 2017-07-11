@@ -1,0 +1,17 @@
+﻿
+<div class="row">
+    </br></br>
+    <div class="col-sm-14" style="background-color:antiquewhite;text-align:center;">
+        <h2 class="page-header">@ViewBag.Title <small> Mudar dados da Inscrição <i class="glyphicon glyphicon-user"></i></small></h2>
+    </div>
+    <div class="col-sm-14" style="position:center">
+        <br />
+        @using (Html.BeginForm("Edit", "PotencialAluno", FormMethod.Get))
+        {
+            <div class="col-md-offset-4 col-md-10">
+                <p style="font-size:medium; font-family:Arial">Introduzir o Código: <input type="text" name="codigoAluno" style="border-color:aquamarine;"/></p> @*@Html.Editor("CodigoAluno")*@
+                <input type="submit" value="Submeter o Código" class="btn btn-success" style="width:145px;height:40px; text-align:center" />
+            </div>
+        }
+        </div>
+    </div>

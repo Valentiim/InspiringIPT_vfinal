@@ -22,11 +22,11 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button>*@
                 <nav class="navbar navbar-inverse bg-primary" style="background-color:lightgreen; border-color:lightgreen;">
                         @Html.ActionLink("Inspiring IPTomar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </nav>
@@ -36,7 +36,13 @@
                     <li>@Html.ActionLink("Sobre Nós", "SobreNos", "Home")</li>
                     <li>@Html.ActionLink("A Nossa Equipa", "Equipa", "Home")</li>
                     <li>@Html.ActionLink("Os Nossos Cursos", "Index", "Cursos")</li>
-                    <li>@Html.ActionLink("Inscreve-te", "Create", "PotencialAluno")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen; font-family:Verdana, Arial,BolsterBold" aria-haspopup="true" aria-expanded="false">Inscreve-te<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Efectuar Inscrição", "Create", "PotencialAluno")</li>
+                            <li>@Html.ActionLink("Mudar dados da Inscrição", "EditarAluno", "PotencialAluno")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Notícias", "Noticia", "Home")</li>
                     <li>@Html.ActionLink("Agenda", "Agenda", "Home")</li>
 
@@ -46,7 +52,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-haspopup="true" aria-expanded="false">Colaborador(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
+                                <li>@Html.ActionLink("Listar Potenciais Alunos", "Index", "PotencialAluno")</li>
                             </ul>
                         </li>
                     }
@@ -58,7 +64,7 @@
                         <li class="dropdown" >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-expanded="false">Gestor(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Listar Potenciais Alunos", "Lista", "PotencialAluno")</li>
+                                <li>@Html.ActionLink("Listar Potenciais Alunos", "Index", "PotencialAluno")</li>
                                 <li>@Html.ActionLink("Listar Cursos", "Index", "Cursos")</li>
                                 <li>@Html.ActionLink("Listar Tipo Curso", "Index", "TipoCurso")</li>
                                 <li>@Html.ActionLink("Listar Áreas", "Index", "Areas")</li>

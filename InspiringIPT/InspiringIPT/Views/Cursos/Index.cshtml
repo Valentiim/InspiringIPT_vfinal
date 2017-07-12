@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<InspiringIPT.Models.Cursos>
 <br />
 <div class="row">
-    <div class="col-sm-14" style="background-color:lavenderblush; border:double; text-align:center;">
-        <h2 class="page-header">@ViewBag.Title <medium> Os nossos Cursos <i class="glyphicon glyphicon-education"></i></medium></h2>
+    <div class="col-sm-14" style="background-color:lavenderblush; text-align:center;">
+        <h2 class="page-header">@ViewBag.Title <small> Os nossos Cursos <i class="glyphicon glyphicon-education"></i></small></h2>
     </div>
-    <div class="col-sm-14" style="background-color:lavender; border:double">
-        <table class="table">
-            <tr>
+    <div class="col-sm-14">
+        <table class="table table-bordered">
+            <tr class="info">
                 <th>
                     @Html.DisplayNameFor(model => model.NomeCurso)
                 </th>
@@ -56,7 +56,7 @@
                     @if (User.IsInRole("Gestores"))
                     {
                         <td>
-                            @Html.ActionLink("Atualizar os Dados", "Edit", new { id = item.CursoID }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Atualizar Curso", "Edit", new { id = item.CursoID }, new { @class = "btn btn-danger" })
                         </td>
                     }
                 </tr>

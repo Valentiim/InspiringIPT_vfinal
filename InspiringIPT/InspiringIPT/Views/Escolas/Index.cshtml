@@ -1,16 +1,11 @@
 ﻿@model IEnumerable<InspiringIPT.Models.Escola>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Adicionar Nova Escola", "Create")
-</p>
-<table class="table">
-    <tr>
+<br />
+<div class="col-sm-14" style="background-color:lavenderblush; text-align:center">
+    <h2 class="page-header">@ViewBag.Title <small> Escolas <i class="glyphicon glyphicon-education"></i></small></h2>
+</div>
+<table class="table table-bordered">
+    <tr class="info">
         <th>
             @Html.DisplayNameFor(model => model.NomeEscola)
         </th>
@@ -29,11 +24,16 @@
             @Html.DisplayFor(modelItem => item.SiglaEscola)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.EscolaID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.EscolaID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.EscolaID })
+            @Html.ActionLink("Editar Escola", "Edit", new { id = item.EscolaID }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalhes da Escola", "Details", new { id = item.EscolaID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Eliminar Escola", "Delete", new { id=item.EscolaID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
 
 </table>
+<div class="row">
+    <div class="col-sm-4">
+        @Html.ActionLink("Adicionar nova Escola", "Create", "", new { @class = "btn btn-success" })
+    </div>
+</div>

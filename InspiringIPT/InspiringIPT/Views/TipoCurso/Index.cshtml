@@ -1,31 +1,39 @@
 ﻿@model IEnumerable<InspiringIPT.Models.TipoCurso>
 
-@{
-    ViewBag.Title = "Lista";
-}
+<br />
+<div class="row">
+    <div class="col-sm-14" style="background-color:lavenderblush; text-align:center">
+        <h2 class="page-header">@ViewBag.Title <small> Tipos de Cursos <i class="glyphicon glyphicon-education"></i></small></h2>
+    </div>
 
-<p>
-    @Html.ActionLink("Adicionar Novo", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th></th>
-    </tr>
+    <div class="col-sm-14">
+        <table class="table table-bordered">
+            <tr class="info">
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.ActionLink("Editar Tipo Curso", "Edit", new { id=item.TipoID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.TipoID }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.TipoID })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar Tipo Curso", "Edit", new { id = item.TipoID }, new { @class = "btn btn-warning" }) 
+                        @Html.ActionLink("Detalhes do Tipo de Curso", "Details", new { id = item.TipoID }, new { @class = "btn btn-info" }) 
+                        @Html.ActionLink("Eliminar Tipo de Curso", "Delete", new { id = item.TipoID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+        <div class="row">
+            <div class="col-sm-4">
+                @Html.ActionLink("Adicionar novo Curso", "Create", "", new { @class = "btn btn-success" })
+            </div>
+        </div>
+</div>
+    </div>

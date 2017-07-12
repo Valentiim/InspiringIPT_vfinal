@@ -15,6 +15,7 @@ namespace InspiringIPT.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Areas
+       
         public ActionResult Index()
         {
             return View(db.Areas.ToList());

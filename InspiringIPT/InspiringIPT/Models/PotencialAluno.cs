@@ -47,7 +47,6 @@ namespace InspiringIPT.Models
         [RegularExpression("[MF]", ErrorMessage = "No '{0}' só pode usar a letra M ou F.")]
         public string Genero { get; set; }
 
-       
         [Required]
         [Display(Name = "Habilitações:")]
         public string HabAcademicas { get; set; }
@@ -58,7 +57,7 @@ namespace InspiringIPT.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataInscricao { get; set; }  // o '?' torna o preenchimento do atributo facultativo
 
-        public string CodigoIdentificacao { get; set; } // permite aceder aos dados do potencial aluno, se ele souber este código
+        public string CodigoIdentificacao { get; set; } // permite aceder aos dados do potencial aluno, se ele souber este código de identificação
 
         //*********************************************************************************************
         //associados o objeto potencial aluno existe uma  lista de objeto Curso

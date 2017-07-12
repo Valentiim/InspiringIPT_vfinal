@@ -20,11 +20,14 @@ namespace InspiringIPT.Models
         }
         [Key]
         public int AreaID { get; set; }
-        [Display(Name = "Área:")]
+
+        [Display(Name = "Áreas")]
         public string NomeArea { get; set; }
 
-        // especificar que uma Área tem um ou muitos Cursos
+        // uma ÁREA tem uma coleção de POTENCIAIS ALUNOS
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
+
+        // uma ÁREA tem uma coleção de LISTA DE CURSOS
         public virtual ICollection<Cursos> ListaCursos { get; set; }
     }
 }

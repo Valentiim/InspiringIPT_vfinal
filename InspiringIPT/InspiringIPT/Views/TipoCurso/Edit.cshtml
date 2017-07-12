@@ -1,8 +1,5 @@
 ﻿@model InspiringIPT.Models.TipoCurso
 
-@{
-    ViewBag.Title = "Editar Tipo de Curso";
-}
 @if (TempData["editTCurso"] != null)
 {
     <div id="myModal" class="modal fade" role="dialog">
@@ -19,6 +16,10 @@
         </div>
     </div>
 }
+<br />
+<div class="col-sm-14" style="background-color:lavenderblush;">
+    <h2 class="page-header">@ViewBag.Title <small>Editar Tipo do Curso <i class="glyphicon glyphicon-education"></i></small></h2>
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -44,8 +45,10 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar a Lista", "Index")
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Voltar a Lista    ", "Index","", new { @class = "btn btn-primary" })
+    </div>
 </div>
 
 @section Scripts {

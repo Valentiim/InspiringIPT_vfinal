@@ -21,14 +21,15 @@ namespace InspiringIPT.Models
 
         [Key]
         public int TipoID { get; set; }
-        [Display(Name = "Tipo de curso: ")]
+
+        [Display(Name = "Tipos de Cursos")]
         public string Tipo { get; set; }
 
         //***************************************************************************
-        // lista de cursos associados ao tipo
+        //TIPO DE CURSO tem uma coleção de CURSOS
         public virtual ICollection<Cursos> ListaCursos { get; set; }
 
-        // especificar que um Tipo de Curso tem um ou muitos Alunos
+        //TIPO DE CURSO tem uma coleção de POTENCIAIS ALUNOS
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }
 
 

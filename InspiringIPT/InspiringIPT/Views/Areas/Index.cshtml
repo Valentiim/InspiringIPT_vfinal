@@ -1,16 +1,11 @@
 ﻿@model IEnumerable<InspiringIPT.Models.Areas>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Adicionar nova Área", "Create")
-</p>
-<table class="table">
-    <tr>
+<br />
+<div class="col-sm-14" style="background-color:lavenderblush; text-align:center">
+    <h2 class="page-header">@ViewBag.Title <small>Áreas de Interesse <i class="glyphicon glyphicon-education"></i></small></h2>
+</div>
+<table class="table table-bordered">
+    <tr class="info">
         <th>
             @Html.DisplayNameFor(model => model.NomeArea)
         </th>
@@ -23,11 +18,17 @@
             @Html.DisplayFor(modelItem => item.NomeArea)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.AreaID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.AreaID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.AreaID })
+            @Html.ActionLink("Editar Área", "Edit", new { id = item.AreaID }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalhes de Área", "Details", new { id = item.AreaID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Eliminar Área", "Delete", new { id=item.AreaID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
 
 </table>
+<div class="row">
+    <div class="col-sm-4">
+        @Html.ActionLink("Adicionar nova Área", "Create", "", new { @class = "btn btn-success" })
+    </div>
+</div>
+

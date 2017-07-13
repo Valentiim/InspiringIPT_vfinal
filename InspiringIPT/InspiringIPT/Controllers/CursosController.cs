@@ -27,13 +27,13 @@ namespace InspiringIPT.Controllers
 
         }
 
-
         // GET: Cursos/Create
         public ActionResult Create()
         {
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
-            ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea");
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
+
             return View();
         }
 
@@ -63,10 +63,10 @@ namespace InspiringIPT.Controllers
               
                 return View(cursos);
             }
-            
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
-            ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
+
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
 
             return View(cursos);
         }
@@ -83,9 +83,14 @@ namespace InspiringIPT.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
-            ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea");
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
+
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
+
             return View(cursos);
         }
 
@@ -101,7 +106,7 @@ namespace InspiringIPT.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    TempData["editCurso"] = "Dado alterado com sucesso!";
+                   
                     db.Entry(cursos).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
@@ -115,9 +120,9 @@ namespace InspiringIPT.Controllers
             }
 
            
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
-            ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola", cursos.EscolaFK);
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo", cursos.TipoCursoFK);
 
             return View(cursos);
         }

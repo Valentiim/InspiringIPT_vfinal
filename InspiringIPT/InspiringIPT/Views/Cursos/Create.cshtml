@@ -55,25 +55,25 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.AreaFK, "Area:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.AreaFK, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
-                            @Html.DropDownList("AreasFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("AreaFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.AreaFK, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.TipoCursoFK, "Tipo de Curso:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.TipoCursoFK,htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
-                            @Html.DropDownList("TiposCursosFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("TipoCursoFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.TipoCursoFK, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.EscolaFK, "Escola:", htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.EscolaFK,htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
-                            @Html.DropDownList("EscolasFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("EscolaFK", null, "Escolha uma opção", htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.EscolaFK, "", new { @class = "text-danger" })
                         </div>
                     </div>

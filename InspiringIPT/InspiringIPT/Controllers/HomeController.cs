@@ -13,7 +13,7 @@ namespace InspiringIPT.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Imagens.ToList());
+            return View(db.Cursos.ToList().OrderBy(n => n.NomeCurso).Take(1));
         }
         public ActionResult notFound()
         {

@@ -151,11 +151,10 @@ namespace InspiringIPT.Controllers
 
                 if (ModelState.IsValid)
                 {  // adiciona o objeto 'Cursos' a base de dados
-
-                    TempData["SubmitSucess"] = "Obrigado! O seu registo foi criado com sucesso!";
+    
                     db.PotencialAluno.Add(potencialAluno);
-
                     //torna a definitiva a adição
+                    TempData["SubmitSucess"] = "Obrigado! O seu registo foi criado com sucesso!";
                     db.SaveChanges();
 
                     return RedirectToAction("ConfirmaAluno", new { id = potencialAluno.CodigoIdentificacao });
@@ -193,7 +192,6 @@ namespace InspiringIPT.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            //   TempData["codSucess"] = "Confirma o Potencial Aluno!";
             return View(potencialAluno);
         }
 
@@ -209,7 +207,6 @@ namespace InspiringIPT.Controllers
             // invoca a View
             return View();
         }
-
 
         // GET: PotencialAluno/Edit/5
         [AllowAnonymous]
@@ -293,8 +290,9 @@ namespace InspiringIPT.Controllers
                 TempData["ad"] = "Alterar Dados";
                 if (ModelState.IsValid)
                 {
-                    TempData["SubmitSucess"] = "Obrigado! O seu dado foi alterado com sucesso!";
+                 
                     db.Entry(potencialAluno).State = System.Data.Entity.EntityState.Modified;
+                    TempData["SubmitSucess"] = "Obrigado! O seu dado foi alterado com sucesso!";
                     db.SaveChanges();
 
                     return RedirectToAction("DetalhesAluno", new { id = potencialAluno.CodigoIdentificacao });

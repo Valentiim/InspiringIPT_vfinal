@@ -1,17 +1,7 @@
-﻿@model IEnumerable<InspiringIPT.Models.Imagens>
+﻿@model IEnumerable<InspiringIPT.Models.Cursos>
 
 @{
     ViewBag.Title = "Inspiring IPTomar";
-
-    IEnumerable<InspiringIPT.Models.Imagens> banner = Model.Where(x => x.Categoria == "banner");
-    IEnumerable<InspiringIPT.Models.Imagens> alimentacao = Model.Where(x => x.Categoria == "alimentacao");
-    IEnumerable<InspiringIPT.Models.Imagens> alojamento = Model.Where(x => x.Categoria == "alojamento");
-    IEnumerable<InspiringIPT.Models.Imagens> associativismo = Model.Where(x => x.Categoria == "associativismo");
-    IEnumerable<InspiringIPT.Models.Imagens> cultura = Model.Where(x => x.Categoria == "cultura");
-    IEnumerable<InspiringIPT.Models.Imagens> desporto = Model.Where(x => x.Categoria == "desporto");
-    IEnumerable<InspiringIPT.Models.Imagens> equipa = Model.Where(x => x.Categoria == "equipa");
-    IEnumerable<InspiringIPT.Models.Imagens> estudar = Model.Where(x => x.Categoria == "estudar");
-
 }
 
 <!-- Header Carousel -->
@@ -44,16 +34,37 @@
     </ol>
     <!-- Wrapper for slides -->
     <br />
-    <div class="carousel-inner" role="listbox">
-        @foreach (var item in banner)
-        {
-            <div class="item active">
-                <img src="~/Imags/@item.Categoria/@item.Nome" />
-                <div class="carousel-caption">
-                </div>
-            </div>
-        }
+    <div class="carousel-inner" role="listbox" />
+    <div class="item active">
+        <img src="~/Imags/banner/banner_7_.jpg" alt="Chania" />
+        <div class="carousel-caption">
+        </div>
     </div>
+
+    <div class="item">
+        <img src="~/Imags/banner/banner_4.jpg" alt="Chania" />
+        <div class="carousel-caption">
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="~/Imags/banner/banner_5.jpg" alt="Chania" />
+        <div class="carousel-caption">
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="~/Imags/banner/banner_1.jpg" alt="Chania" />
+        <div class="carousel-caption">
+        </div>
+    </div>
+
+    <div class="item">
+        <img src="~/Imags/banner/banner_6.jpg" alt="Chania" />
+        <div class="carousel-caption">
+        </div>
+    </div>
+
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#entrada" role="button" data-slide="prev">

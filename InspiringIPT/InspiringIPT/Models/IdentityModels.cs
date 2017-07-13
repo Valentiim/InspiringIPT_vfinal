@@ -43,6 +43,7 @@ namespace InspiringIPT.Models
         public virtual DbSet<Areas> Areas { get; set; }
         public virtual DbSet<Escola> Escola { get; set; }
         public virtual DbSet<TipoCurso> TipoCurso { get; set; }
+        public virtual DbSet<Imagens> Imagens { get; set; }
 
     }
 }

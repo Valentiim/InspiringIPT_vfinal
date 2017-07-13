@@ -60,10 +60,8 @@ namespace InspiringIPT.Controllers
             }
             catch (Exception)
             {
-                // não consigo guardar as alterações
-                // No mínimo, preciso de 
-                // notificar o utilizador que o processo falhou
-                ModelState.AddModelError("","Dados incorectos!");
+              
+                return View(cursos);
             }
             
             ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea", cursos.AreaFK);
@@ -113,10 +111,7 @@ namespace InspiringIPT.Controllers
             catch (Exception)
             {
 
-                // não consigo guardar as alterações
-                // No mínimo, preciso de 
-                // notificar o utilizador que o processo falhou
-                ModelState.AddModelError("", "Dados incorectos!");
+                return View(cursos);
             }
 
            

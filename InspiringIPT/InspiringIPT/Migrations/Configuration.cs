@@ -3,6 +3,7 @@ namespace InspiringIPT.Migrations
     using Models;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<InspiringIPT.Models.ApplicationDbContext>
@@ -16,6 +17,68 @@ namespace InspiringIPT.Migrations
 
         protected override void Seed(InspiringIPT.Models.ApplicationDbContext context)
         {
+
+            //######################################################## IMAGENS
+            //adiciona as Imagens
+            var imagens = new List<Imagens>
+            {
+                 //*******************************************************ALIMENTAÇÃO****************************
+                new Imagens {ImagensID = 1, Nome = "alimentacao1.jpg", Categoria = "alimentacao", Data = DateTime.Now},
+                new Imagens {ImagensID = 2, Nome = "alimentacao3.jpg", Categoria = "alimentacao", Data = DateTime.Now},
+                new Imagens {ImagensID = 3, Nome = "alimentacao4.jpg", Categoria = "alimentacao", Data = DateTime.Now},
+
+                //*******************************************************ALOJAMENTO****************************
+                new Imagens {ImagensID = 4, Nome = "alojamento1.jpg", Categoria = "alojamento", Data = DateTime.Now},
+                new Imagens {ImagensID = 5, Nome = "alojamento2.jpg", Categoria = "alojamento", Data = DateTime.Now},
+                new Imagens {ImagensID = 6, Nome = "alojamento3.jpg", Categoria = "alojamento", Data = DateTime.Now},
+                new Imagens {ImagensID = 7, Nome = "alojamento4.jpg", Categoria = "alojamento", Data = DateTime.Now},
+
+                //*******************************************************ASSOCIATIVISMO****************************
+                new Imagens {ImagensID = 8, Nome = "Associativismo2.jpg", Categoria = "associativismo", Data = DateTime.Now},
+                new Imagens {ImagensID = 9, Nome = "Associativismo3.jpg", Categoria = "associativismo", Data = DateTime.Now},
+                new Imagens {ImagensID = 10, Nome = "Associativismo4.jpg", Categoria = "associativismo", Data = DateTime.Now},
+                
+                //*******************************************************BANNER****************************
+                new Imagens {ImagensID = 11, Nome = "banner_1.jpg", Categoria = "banner", Data = DateTime.Now},
+                new Imagens {ImagensID = 12, Nome = "banner_4.jpg", Categoria = "banner", Data = DateTime.Now},
+                new Imagens {ImagensID = 13, Nome = "banner_5.jpg", Categoria = "banner", Data = DateTime.Now},
+                new Imagens {ImagensID = 14, Nome = "banner_6.jpg", Categoria = "banner", Data = DateTime.Now},
+                new Imagens {ImagensID = 15, Nome = "banner_7_.jpg", Categoria = "banner", Data = DateTime.Now},
+
+                //*******************************************************CULTURA****************************
+                new Imagens {ImagensID = 16, Nome = "cultura1.jpg", Categoria = "cultura", Data = DateTime.Now},
+                new Imagens {ImagensID = 17, Nome = "cultura2.jpg", Categoria = "cultura", Data = DateTime.Now},
+                new Imagens {ImagensID = 18, Nome = "cultura4.jpg", Categoria = "cultura", Data = DateTime.Now},
+                new Imagens {ImagensID = 19, Nome = "cultura5.jpg", Categoria = "cultura", Data = DateTime.Now},
+
+                //*******************************************************DESPORTO****************************
+                new Imagens {ImagensID = 20, Nome = "desporto2.jpg", Categoria = "desporto", Data = DateTime.Now},
+                new Imagens {ImagensID = 21, Nome = "desporto3.jpg", Categoria = "desporto", Data = DateTime.Now},
+                new Imagens {ImagensID = 22, Nome = "desporto4.jpg", Categoria = "desporto", Data = DateTime.Now},
+                new Imagens {ImagensID = 23, Nome = "desportos.jpg", Categoria = "desporto", Data = DateTime.Now},
+
+                 //*******************************************************EQUIPA****************************
+                new Imagens {ImagensID = 24, Nome = "img1.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 25, Nome = "img2.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 26, Nome = "img3.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 27, Nome = "img4.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 28, Nome = "img5.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 29, Nome = "img6.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 30, Nome = "img7.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 31, Nome = "img8.jpg", Categoria = "equipa", Data = DateTime.Now},
+                new Imagens {ImagensID = 32, Nome = "img9.jpg", Categoria = "equipa", Data = DateTime.Now},
+
+
+                //*******************************************************ESTUDAR****************************
+                new Imagens {ImagensID = 33, Nome = "estudar_3.jpg", Categoria = "estudar", Data = DateTime.Now},
+                new Imagens {ImagensID = 34, Nome = "estudar_4.jpg", Categoria = "estudar", Data = DateTime.Now},
+                new Imagens {ImagensID = 35, Nome = "estudar1.jpg", Categoria = "estudar", Data = DateTime.Now},
+                new Imagens {ImagensID = 36, Nome = "estudar2.jpg", Categoria = "estudar", Data = DateTime.Now}
+
+            };
+            imagens.ForEach(arar => context.Imagens.AddOrUpdate(ar => ar.Nome, arar));
+            context.SaveChanges();
+
 
             //######################################################## ÁREAS
             //adiciona as Áreas

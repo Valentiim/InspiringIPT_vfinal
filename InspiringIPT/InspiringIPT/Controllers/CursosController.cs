@@ -20,9 +20,9 @@ namespace InspiringIPT.Controllers
         [AllowAnonymous] //permite o acesso de UTILIZADORES ANÓNIMOS aos conteúdos deste método
         public ActionResult Index()
         {
-            ViewBag.AreasFK = new SelectList(db.Areas, "AreaID", "NomeArea");
-            ViewBag.TiposCursosFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
-            ViewBag.EscolasFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
+            ViewBag.AreaFK = new SelectList(db.Areas, "AreaID", "NomeArea");
+            ViewBag.TipoCursoFK = new SelectList(db.TipoCurso, "TipoID", "Tipo");
+            ViewBag.EscolaFK = new SelectList(db.Escola, "EscolaID", "NomeEscola");
             return View(db.Cursos.OrderByDescending(m=> m.NomeCurso).ToList());
 
         }
@@ -50,9 +50,11 @@ namespace InspiringIPT.Controllers
                 if (ModelState.IsValid)
                 {
                     
-                    TempData["createCurso"] = "Novo Curso adicionado com sucesso!";
+                 
                     // adiciona o objeto 'Cursos' a base de dados
                     db.Cursos.Add(cursos);
+
+                    TempData["createCurso"] = "Novo Curso adicionado com sucesso!";
                     //torna a definitiva a adição
                     db.SaveChanges();
                     return RedirectToAction("Index");

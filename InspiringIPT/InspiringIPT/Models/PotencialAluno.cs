@@ -38,8 +38,8 @@ namespace InspiringIPT.Models
         public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Contacto telefónico:")]
-        [StringLength(9)]
-        //[RegularExpression("[0-9]{9}", ErrorMessage = "O Contacto é composto por 9 caracteres Numéricos")]
+        [StringLength(9, ErrorMessage = "O {0} tem de ser escrito com {1}.", MinimumLength = 9)]
+        [RegularExpression("[0-9]{9}")]
         public string Contacto { get; set; }
 
         [StringLength(1)] //permite apenas um algarismo
@@ -52,11 +52,13 @@ namespace InspiringIPT.Models
         public string HabAcademicas { get; set; }
 
         //*********************************************************************************************
-    
+
         [Column(TypeName = "date")]// formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Data Inscrição:")]
         public DateTime DataInscricao { get; set; }  // o '?' torna o preenchimento do atributo facultativo
 
+        [Display(Name = "Código de Identificação:")]
         public string CodigoIdentificacao { get; set; } // permite aceder aos dados do potencial aluno, se ele souber este código de identificação
 
         //*********************************************************************************************

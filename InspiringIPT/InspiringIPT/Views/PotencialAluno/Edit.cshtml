@@ -89,7 +89,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.DataInscricao, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -98,17 +97,17 @@
                     </div>
                 </div>
 
-               <div class="form-group">
-                        @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
-                            @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
-                            @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
-                            @Html.RadioButtonFor(model => model.HabAcademicas, "Doutoramento") Doutoramento<br />
-                            @Html.RadioButtonFor(model => model.HabAcademicas, "Grau Académico Superior Estrangeiro") Grau Académico Auperior Estrangeiro<br />
-                            @Html.ValidationMessageFor(model => model.HabAcademicas, "", new { @class = "text-danger" })
-                        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "Doutoramento") Doutoramento<br />
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "Grau Académico Superior Estrangeiro") Grau Académico Auperior Estrangeiro<br />
+                        @Html.ValidationMessageFor(model => model.HabAcademicas, "", new { @class = "text-danger" })
                     </div>
+                </div>
 
                 <div class="col-md-4">
                     @* listagem dos Cursos disponíveis no IPT  *@
@@ -124,14 +123,14 @@
                                     @foreach (var curso in ViewBag.Cursos)
                                     {
                                         @* se a lista de curso estiver selecionado *@
-                                        if (Model.ListaCursos.Contains(curso))
-                                        {
-                                            <option value="@curso.CursoID" selected> @curso.NomeCurso</option>
-                                        }
-                                        @* se não, selecionar um curso*@
-                                        else
-                                        {
-                                            <option value="@curso.CursoID"> @curso.NomeCurso</option>
+                                    if (Model.ListaCursos.Contains(curso))
+                                    {
+                                        <option value="@curso.CursoID" selected> @curso.NomeCurso</option>
+                                    }
+                                    @* se não, selecionar um curso*@
+                                    else
+                                    {
+                                        <option value="@curso.CursoID"> @curso.NomeCurso</option>
                                         }
                                     }
                                 </select>
@@ -154,14 +153,14 @@
                                     @foreach (var area in ViewBag.Areas)
                                     {
                                         @* se a lista de curso estiver selecionado *@
-                                        if (Model.ListaAreas.Contains(area))
-                                        {
-                                            <option value="@area.AreaID" selected> @area.NomeArea</option>
-                                        }
-                                        @* se não, selecionar um curso*@
-                                        else
-                                        {
-                                            <option value="@area.AreaID"> @area.NomeArea</option>
+                                    if (Model.ListaAreas.Contains(area))
+                                    {
+                                        <option value="@area.AreaID" selected> @area.NomeArea</option>
+                                    }
+                                    @* se não, selecionar um curso*@
+                                    else
+                                    {
+                                        <option value="@area.AreaID"> @area.NomeArea</option>
                                         }
 
                                     }
@@ -200,19 +199,24 @@
                     </table>
                 </div>
 
-
-
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar alteração" class="btn btn-success" />
-                    </div>
+                </div>
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                </div>
+                <div class="form-group">
                 </div>
             </div>
         }
+
+        <br /><br /><br /><br />  <br /><br />
         <div class="btn btn-secondary text-danger" style="height:40px">
-            <div>
-                @Html.ActionLink("Listar os Potenciais Alunos", "Index", "", new { @class = "btn btn-primary" })
-            </div>
+          @if (User.IsInRole("Gestores"))
+            {
+                @Html.ActionLink("Listar os Potenciais Alunos", "Index", "PotencialAluno", new { @class = "btn btn-primary" })
+            }
+            <input type="submit" value="Guardar alteração" class="btn btn-success" />
         </div>
     </div>
 </div>

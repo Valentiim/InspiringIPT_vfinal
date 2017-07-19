@@ -122,10 +122,10 @@ namespace InspiringIPT.Migrations
             var cursos = new List<Cursos>
             {
 
-                new Cursos {CursoID=1, NomeCurso="Engenharia Informática", SiglaCurso="EI", Descricao="Falta descrever", EscolaFK=1, AreaFK=1,TipoCursoFK=1},
-                new Cursos {CursoID=2, NomeCurso="Gestão Turística e Cultural", SiglaCurso="GTC", Descricao="Falta descrever",EscolaFK=3, AreaFK=2,TipoCursoFK=2},
-                new Cursos {CursoID=3, NomeCurso="Design e Tecnologia das Artes Gráficas", SiglaCurso="DTAG", Descricao="Falta descrever",EscolaFK=2, AreaFK=4,TipoCursoFK=3},
-                new Cursos {CursoID=4, NomeCurso="Engenharia Eletrot. e de Computadores", SiglaCurso="EEC", Descricao="Falta descrever", EscolaFK=3, AreaFK=3,TipoCursoFK=1}
+                new Cursos {CursoID=1, NomeCurso="Engenharia Informática", SiglaCurso="EI", Descricao="a descrever...", EscolaFK=1, AreaFK=1,TipoCursoFK=1},
+                new Cursos {CursoID=2, NomeCurso="Gestão Turística e Cultural", SiglaCurso="GTC", Descricao="a descrever...",EscolaFK=2, AreaFK=2,TipoCursoFK=1},
+                new Cursos {CursoID=3, NomeCurso="Design e Tecnologia das Artes Gráficas", SiglaCurso="DTAG", Descricao="a descrever...",EscolaFK=1, AreaFK=1,TipoCursoFK=1},
+                new Cursos {CursoID=4, NomeCurso="Engenharia Eletrotécnica e de Computadores", SiglaCurso="EEC", Descricao="a descrever...", EscolaFK=1, AreaFK=1,TipoCursoFK=1}
 
             };
             cursos.ForEach(cc => context.Cursos.AddOrUpdate(c => c.CursoID, cc));

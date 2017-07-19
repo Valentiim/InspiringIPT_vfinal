@@ -1,29 +1,14 @@
 ﻿@model InspiringIPT.Models.PotencialAluno
 
 <br />
-@if (TempData["SubmitSucess"] != null)
-{
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>@TempData["SubmitSucess"]</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-}
+
 <div class="row" style="border:inherit;">
     <div class="col-sm-14" style="background-color:antiquewhite;text-align:center; border:double;">
-        <h2 class="page-header">@ViewBag.Title <medium> Registo de Potencial Aluno <i class="glyphicon glyphicon-user"></i></medium></h2>
+        <h2 class="page-header"><small> Registo de Potencial Aluno <span class="glyphicon glyphicon-user"></span></small></h2>
     </div>
     <div class="col-sm-14" style="background-color:lavender; border:double">
         @using (Html.BeginForm())
-            {
+        {
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -33,7 +18,7 @@
                         <br />
                         @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Nome Completo" } })
+                            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @autofocus = "", @placeholder = "Introduzir o seu Nome Completo" } })
                             @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -65,7 +50,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Contacto, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Contacto, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Contacto" } })
+                            @Html.EditorFor(model => model.Contacto, new { htmlAttributes = new { @class = "form-control", @maxlength = "9", @placeholder = "Introduzir o seu Contacto" } })
                             @Html.ValidationMessageFor(model => model.Contacto, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -82,6 +67,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "ainda não tenho o 12º ano") ainda não tenho o 12º ano <br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
@@ -92,7 +78,7 @@
                     </div>
 
 
-                   
+
 
                     <div class="col-md-4">
                         @* listagem dos Cursos disponíveis no IPT  *@
@@ -104,9 +90,14 @@
                                 <td>
                                     <select class="selectpicker" name="ListaDeCursos" multiple>
                                         <option disabled selected value=""> Selecionar Curso(s) </option>
-                                        @foreach (var curso in ViewBag.Cursos)
-                                        {
-                                            <option value="@curso.CursoID"> @curso.NomeCurso</option>
+                                        @{string selecionado = "";
+                                            string cursosEscolhidos = (string)ViewBag.AuxCursos;
+                                            foreach (var curso in ViewBag.Cursos)
+                                            {
+                                                if (cursosEscolhidos.Contains(curso.CursoID+"")) { selecionado = "selected"; }
+                                                else { selecionado = ""; }
+                                                <option value="@curso.CursoID" @selecionado> @curso.NomeCurso</option>
+                                            }
                                         }
                                     </select>
                                 </td>
@@ -124,9 +115,13 @@
                                 <td>
                                     <select class="selectpicker" name="ListaDeAreas" multiple>
                                         <option disabled selected value=""> Selecionar Área(s) </option>
-                                        @foreach (var area in ViewBag.Areas)
-                                        {
-                                            <option value="@area.AreaID"> @area.NomeArea</option>
+                                        @{ string areasEscolhidas = (string)ViewBag.AuxAreas;
+                                            foreach (var area in ViewBag.Areas)
+                                            {
+                                                if (areasEscolhidas.Contains(area.AreaID+"")) { selecionado = "selected"; }
+                                                else { selecionado = ""; }
+                                                <option value="@area.AreaID" @selecionado> @area.NomeArea</option>
+                                            }
                                         }
                                     </select>
                                 </td>
@@ -144,9 +139,13 @@
                                 <td>
                                     <select class="selectpicker" name="ListaDeTipoCurso" multiple>
                                         <option disabled selected value=""> Selecionar Tipo(s) Curso(s) </option>
-                                        @foreach (var tipocurso in ViewBag.TipoCurso)
-                                        {
-                                            <option value="@tipocurso.TipoID"> @tipocurso.Tipo</option>
+                                        @{ string tiposCursosEscolhidos = (string)ViewBag.AuxTiposCurso;
+                                            foreach (var tipocurso in ViewBag.TipoCurso)
+                                            {
+                                                if (tiposCursosEscolhidos.Contains(tipocurso.TipoID+"")) { selecionado = "selected"; }
+                                                else { selecionado = ""; }
+                                                <option value="@tipocurso.TipoID" @selecionado> @tipocurso.Tipo</option>
+                                            }
                                         }
                                     </select>
                                 </td>
@@ -160,15 +159,15 @@
                         <br /><br />*@
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                            <input type="submit" value="Submeter a Pré-inscrição" class="btn btn-success" style="width:305px;height:50px; text-align:center" />
+                        <div class="col-md-offset-4 col-md-10">
+                            <br />@*<br /><br /><br /><br /><br /><br /><br /><br />*@
+                            <input type="submit" value="Submeter a Pré-Inscrição" class="btn btn-success" style="width:305px;height:50px; font-family:Arial; text-align:center" />
                             <p></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-        }
+                                            }
     </div>
 </div>

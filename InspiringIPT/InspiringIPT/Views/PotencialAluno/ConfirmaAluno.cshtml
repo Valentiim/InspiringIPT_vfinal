@@ -1,25 +1,110 @@
 ﻿@model InspiringIPT.Models.PotencialAluno
 
 @{
-    ViewBag.Title = "Confirma o Potencial Aluno";
+    ViewBag.Title = "Confirmação de dados do Potencial Aluno";
 }
 
-@if (TempData["SubmitSucess"] != null)
-{
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>@TempData["SubmitSucess"]</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
+<div class="row" style="border:inherit;">
+    <div class="col-sm-14" style="background-color:antiquewhite;text-align:center; border:double;">
+        <h2 class="page-header"><small> Confirmação de Registo de Potencial Aluno <span class="glyphicon glyphicon-user"></span></small></h2>
     </div>
-}
 
-@Model.NomeCompleto<br />
-@Model.CodigoIdentificacao
+    <h4>Obrigado <b>@Model.NomeCompleto</b> pelo teu registo.</h4>
+    <h4>Por favor, guarda este código: <b><span style="color:red;">@Model.CodigoIdentificacao</span></b>, <br />pois só com ele poderás aceder aos teus dados e corrigi-los.</h4>
+    <br />
+    Os dados que submeteste foram:<br />
+
+    <div class="col-sm-14" style="background-color:lavender">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Genero)
+            </dt>
+
+            <dd>
+                @if (Model.Genero.Equals("F"))
+                {<div>Feminino</div>}
+                else
+                {<div>Masculino</div>}
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Concelho)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Concelho)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ListaCursos)
+            </dt>
+
+            <dd>
+                @* lista dos cursos *@
+                @if (Model.ListaCursos != null)
+                {
+                    foreach (var curso in Model.ListaCursos)
+                    {     // mostra apenas o nome curso selecionado
+                        <p> @curso.NomeCurso</p>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ListaTipoCurso)
+            </dt>
+            <dd>
+                @* lista dos tipos de cursos *@
+                @if (Model.ListaTipoCurso != null)
+                {
+                    foreach (var tipocurso in Model.ListaTipoCurso)
+                    {   // mostra apenas o tipo de curso selecionado
+                        <p> @tipocurso.Tipo</p>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ListaAreas)
+            </dt>
+
+            <dd>
+                @* lista das áreas *@
+                @if (Model.ListaAreas != null)
+                {
+                    foreach (var area in Model.ListaAreas)
+                    {    // mostra apenas a área selecionada
+                        <p> @area.NomeArea</p>
+                    }
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataInscricao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataInscricao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CodigoIdentificacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CodigoIdentificacao)
+            </dd>
+        </dl>
+
+    </div>
+
+</div>

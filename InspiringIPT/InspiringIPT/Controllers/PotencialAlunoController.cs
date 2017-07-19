@@ -29,6 +29,9 @@ namespace InspiringIPT.Controllers
             return View(potencialAluno.ToList());
         }
 
+
+
+
         // GET: PotencialAluno/Details/5
         [Authorize(Roles = "Gestores,Colaboradores")]
         public ActionResult Details(int? id)
@@ -67,14 +70,23 @@ namespace InspiringIPT.Controllers
         [AllowAnonymous]
         public ActionResult Create()
         {
+            // vamos reapresentar a View ao Potencial Aluno
+            // enumera a lista de opções escolhidas peo potencial aluno
+            // como é a 1ª vex, essa lista é vazia
+            ViewBag.AuxAreas = "";
+            ViewBag.AuxCursos = "";
+            ViewBag.AuxTiposCurso = "";
+
             // procura dados necessários para o correto funcionamento da View
-            ViewBag.Areas = db.Areas.OrderBy(a => a.NomeArea);
+            ViewBag.Areas = db.Areas.OrderBy(a => a.NomeArea).ToList();
             ViewBag.Cursos = db.Cursos.OrderBy(c => c.EscolaFK).OrderBy(c => c.Areas.NomeArea).ToList();
-            ViewBag.TipoCurso = db.TipoCurso.OrderBy(t => t.Tipo);
+            ViewBag.TipoCurso = db.TipoCurso.OrderBy(t => t.Tipo).ToList();
 
             // invoca a View
             return View();
         }
+
+
 
         // POST: PotencialAluno/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -82,33 +94,38 @@ namespace InspiringIPT.Controllers
         /// <summary>
         /// Guarda os dados de um potencial aluno
         /// </summary>
-        /// <param name="potencialAluno"></param>
-        /// <param name="ListaDeCursos"></param>
-        /// <param name="ListaDeAreas"></param>
-        /// <param name="ListaDeTipoCurso"></param>
+        /// <param name="potencialAluno">objeto com os dados do aluno</param>
+        /// <param name="ListaDeCursos">lista de Cursos escolhidos pelo aluno</param>
+        /// <param name="ListaDeAreas">lista de Áreas escolhidas pelo aluno</param>
+        /// <param name="ListaDeTipoCurso">lista de Tipos de cursos escolhido pelo aluno</param>
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
         public ActionResult Create([Bind(Include = "NomeCompleto,Email,Concelho,DataNascimento,Contacto,Genero,HabAcademicas")] PotencialAluno potencialAluno, int?[] ListaDeCursos, int?[] ListaDeAreas, int?[] ListaDeTipoCurso)
         {
+            //// neste caso não preciso de me preocupar com o ID atribuído ao aluno
+            //int novoID = 0;
+            //try
+            //{
+            //    novoID = db.PotencialAluno.Max(d => d.AlunoID) + 1;
+            //    potencialAluno.AlunoID = novoID;
+            //}
+            //catch (System.Exception)
+            //{
+            //    // a tabela 'PotencialAluno' está vazia
+            //    // não sendo possível devolver o MAX de uma tabela vazia
+            //    // Por isso,
+            //    // vou atribuir 'manualmente' o valor do 'novoID'
+            //    novoID = 1;
+            //}
 
-            int novoID = 0;
-            try
-            {
-                novoID = db.PotencialAluno.Max(d => d.AlunoID) + 1;
-                potencialAluno.AlunoID = novoID;
-            }
-            catch (System.Exception)
-            {
-                // a tabela 'PotencialAluno' está vazia
-                // não sendo possível devolver o MAX de uma tabela vazia
-                // Por isso,
-                // vou atribuir 'manualmente' o valor do 'novoID'
-                novoID = 1;
-            }
+            // vars. auxiliares a serem utilizadas caso haja algum erro, e 
+            // tenha se ser reapresentado o formulário ao potencial aluno
+            string auxCursos = "";
+            string auxTipoCursos = "";
+            string auxAreas = "";
 
-            // falta aqui muita coisa ainda
             try
             {
                 // completar os dados do potencial aluno
@@ -120,6 +137,7 @@ namespace InspiringIPT.Controllers
                 var listaAreas = new List<Areas>(); //cria a lista de áreas que o potencial aluno escolheu
                 var listaTipoCurso = new List<TipoCurso>(); //cria a lista de tipos de cursos que potencial aluno escolheu
 
+                //**************************************************** Lista de Cursos *********************
                 // se a lista de cursos escolhidos pelo aluno não for nula
                 // adicionam-se às suas preferências
                 if (ListaDeCursos != null)
@@ -127,34 +145,39 @@ namespace InspiringIPT.Controllers
                     {
                         Cursos curso = db.Cursos.Find(ListaDeCursos[i]);
                         listaCursos.Add(curso);
+                        auxCursos += curso.CursoID + " ";
                     }
                 potencialAluno.ListaCursos = listaCursos;
-                //**************************************************** Lista de Áreas *******************
+
+                //**************************************************** Lista de Áreas *********************
                 if (ListaDeAreas != null)
                     for (int i = 0; i < ListaDeAreas.Count(); i++)
                     {
                         Areas area = db.Areas.Find(ListaDeAreas[i]);
                         listaAreas.Add(area);
+                        auxAreas += area.AreaID + " ";
                     }
                 potencialAluno.ListaAreas = listaAreas;
 
-                //**************************************************** Lista do Tipo de Cursos ************
+                //**************************************************** Lista de Tipo de Cursos ************
                 // será que escolheu algum tipo de curso?
                 if (ListaDeTipoCurso != null)
                     for (int i = 0; i < ListaDeTipoCurso.Count(); i++)
                     {
                         TipoCurso tipocurso = db.TipoCurso.Find(ListaDeTipoCurso[i]);
                         listaTipoCurso.Add(tipocurso);
+                        auxTipoCursos += tipocurso.TipoID + " ";
                     }
                 potencialAluno.ListaTipoCurso = listaTipoCurso;
 
 
+
                 if (ModelState.IsValid)
-                {  // adiciona o objeto 'Cursos' a base de dados
-    
+                {
+                    // adiciona o objeto 'PotencialAluno' à base de dados
                     db.PotencialAluno.Add(potencialAluno);
+
                     //torna a definitiva a adição
-                    TempData["SubmitSucess"] = "Obrigado! O seu registo foi criado com sucesso!";
                     db.SaveChanges();
 
                     return RedirectToAction("ConfirmaAluno", new { id = potencialAluno.CodigoIdentificacao });
@@ -165,8 +188,14 @@ namespace InspiringIPT.Controllers
                 // não consigo guardar as alterações
                 // No mínimo, preciso de 
                 // notificar o utilizador que o processo falhou
-                ModelState.AddModelError("", "Dados incorrectos");
+                ModelState.AddModelError("", "Foram introduzidos dados incorrectos. Verifica, por favor, a sua correção.");
             }
+
+            // vamos reapresentar a View ao Potencial Aluno   
+            // recuperando os dados anteriormente fornecidos
+            ViewBag.AuxAreas = auxAreas;
+            ViewBag.AuxCursos = auxCursos;
+            ViewBag.AuxTiposCurso = auxTipoCursos;
 
             ViewBag.Areas = db.Areas.OrderBy(a => a.NomeArea).ToList();
             ViewBag.Cursos = db.Cursos.OrderBy(c => c.EscolaFK).OrderBy(c => c.Areas.NomeArea).ToList();
@@ -175,17 +204,18 @@ namespace InspiringIPT.Controllers
             return View(potencialAluno);
         }
 
-        // GET: PotencialAluno/DetalhesAluno/5
+        // GET: PotencialAluno/ConfirmaAluno/5
         [AllowAnonymous]
-        public ActionResult ConfirmaAluno(string codigo)
+        public ActionResult ConfirmaAluno(string id)
         {
             // avalia se o parâmetro é nulo
-            if (codigo == null)
+            // id = código GUID associado ao aluno
+            if (id == null)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            PotencialAluno potencialAluno = db.PotencialAluno.Where(a => a.CodigoIdentificacao.Equals(codigo)).FirstOrDefault();
+            PotencialAluno potencialAluno = db.PotencialAluno.Where(a => a.CodigoIdentificacao.Equals(id)).FirstOrDefault();
 
             if (potencialAluno == null)
             {
@@ -223,11 +253,11 @@ namespace InspiringIPT.Controllers
             // avalia se o parâmetro é nulo
             if (potencialAluno == null)
             {
-                // não esquecer enviar msg de erro
-                // ver como foi feito nas outras views...
-                // enviar o código errado
+
                 return RedirectToAction("EditarAluno");
             }
+
+            // é necessário fazer aqui o mesmo que se fez no create, para preservar as escolhas do utilizador...
 
             ViewBag.Areas = db.Areas.OrderBy(a => a.NomeArea).ToList();
             ViewBag.Cursos = db.Cursos.OrderBy(c => c.EscolaFK).OrderBy(c => c.Areas.NomeArea).ToList();
@@ -247,8 +277,8 @@ namespace InspiringIPT.Controllers
 
             try
             {
-                // completar os dados do potencial aluno
-                potencialAluno.CodigoIdentificacao = Guid.NewGuid().ToString();
+
+              //  potencialAluno.CodigoIdentificacao = Guid.NewGuid().ToString();
                 potencialAluno.DataInscricao = DateTime.Now;
 
                 // será que escolheu algum curso?
@@ -264,7 +294,9 @@ namespace InspiringIPT.Controllers
                         Cursos curso = db.Cursos.Find(ListaDeCursos[i]);
                         listaCursos.Add(curso);
                     }
+
                 potencialAluno.ListaCursos = listaCursos;
+
                 //**************************************************** Lista de Áreas *******************
                 if (ListaDeAreas != null)
                     for (int i = 0; i < ListaDeAreas.Count(); i++)
@@ -274,7 +306,7 @@ namespace InspiringIPT.Controllers
                     }
                 potencialAluno.ListaAreas = listaAreas;
 
-                //**************************************************** Lista do Tipo de Cursos ************
+                //**************************************************** Lista de Tipo de Cursos ************
                 if (ListaDeTipoCurso != null)
                     for (int i = 0; i < ListaDeTipoCurso.Count(); i++)
                     {
@@ -284,14 +316,11 @@ namespace InspiringIPT.Controllers
                 potencialAluno.ListaTipoCurso = listaTipoCurso;
 
 
-                // será que escolheu algum tipo de curso?
-                // ....
-
-                TempData["ad"] = "Alterar Dados";
                 if (ModelState.IsValid)
                 {
-                 
+
                     db.Entry(potencialAluno).State = System.Data.Entity.EntityState.Modified;
+
                     TempData["SubmitSucess"] = "Obrigado! O seu dado foi alterado com sucesso!";
                     db.SaveChanges();
 

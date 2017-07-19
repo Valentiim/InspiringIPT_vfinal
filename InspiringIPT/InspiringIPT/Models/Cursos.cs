@@ -19,11 +19,11 @@ namespace InspiringIPT.Models
         public int CursoID { get; set; }
 
         [Required(ErrorMessage = "Introduzir o Nome do Curso")]
-        [Display(Name = "Curso")]
+        [Display(Name = "Cursos")]
         public string NomeCurso { get; set; }
 
         [Required(ErrorMessage = "Introduzir Sigla do Curso")]
-        [Display(Name = "Sigla")]
+        [Display(Name = "Siglas")]
         public string SiglaCurso { get; set; }
 
         [Required(ErrorMessage = "Introduzir uma Descrição sobre o Curso")]
@@ -36,6 +36,7 @@ namespace InspiringIPT.Models
         [ForeignKey("Areas")]
         [Required(ErrorMessage = "Selecionar uma Área válida")]
         public int AreaFK { get; set; }
+        [Display(Name = "Áreas")]
         public virtual Areas Areas { get; set; }
 
         // criar a chave forasteira
@@ -44,6 +45,7 @@ namespace InspiringIPT.Models
         [ForeignKey("TipoCurso")]
         [Required(ErrorMessage = "Selecionar uma um Tipo de Curso")]
         public int TipoCursoFK { get; set; }
+        [Display(Name = "Tipos Cursos")]
         public virtual TipoCurso TipoCurso { get; set; }
 
         // criar a chave forasteira
@@ -52,6 +54,7 @@ namespace InspiringIPT.Models
         [ForeignKey("Escola")]
         [Required(ErrorMessage = "Selecionar uma Escola válida")]
         public int EscolaFK { get; set; }
+        [Display(Name = "Escolas")]
         public virtual Escola Escola { get; set; }
 
 

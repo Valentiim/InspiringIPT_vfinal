@@ -18,7 +18,7 @@
 }
 <br /><br />
 <div class="row">
-    <div class="col-sm-14" style="background-color:lavenderblush;">
+    <div class="col-sm-12" style="background-color:lavenderblush; text-underline-position:auto">
         <h2 class="page-header">@ViewBag.Title <small>Adicionar novo Curso<i class="glyphicon glyphicon-book"></i></small></h2>
     </div>
     <div class="col-sm-14" style="background-color:lavender">
@@ -30,7 +30,7 @@
                 <hr />
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+                    <br />
                     <div class="form-group">
                         @Html.LabelFor(model => model.NomeCurso, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">

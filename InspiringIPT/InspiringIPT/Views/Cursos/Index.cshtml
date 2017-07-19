@@ -66,9 +66,9 @@
         @*apenas utilizadores do tipo "Gestores", podem adicionar um novo curso a BD*@
         @if (User.IsInRole("Gestores"))
         {
-            <div class="row">
-                <div class="col-sm-4">
-                    @Html.ActionLink("Adicionar novo Curso", "Create","", new { @class = "btn btn-success" })
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-12">
+                    @Html.ActionLink("Adicionar novo Curso", "Create", "", new { @class = "btn btn-success" })
                 </div>
             </div>
         }

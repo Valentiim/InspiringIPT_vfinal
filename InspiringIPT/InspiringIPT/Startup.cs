@@ -84,6 +84,35 @@ namespace InspiringIPT
             }
             //************************************************  FIM ****************************************************
 
+            //********************************************** INICIO COLABORADOR3 ************************************************
+            // criar a Role 'Colaborador1'
+            if (!roleManager.RoleExists("Colaboradores"))
+            {
+                // não existe a 'role'
+                // então, criar essa role
+                var role = new IdentityRole();
+                role.Name = "Colaboradores";
+                roleManager.Create(role);
+
+                //user.UserName = "Rita Cruz";
+                string userPWD = "kl096Ab:";
+
+                // criar o utilizador 'Rita Cruz'
+                var user = new ApplicationUser();
+                user.UserName = "mariza@ipt.pt";
+                user.Email = "mariza@ipt.pt";
+                //user.EmailConfirmed = true;
+                var chkUser = userManager.Create(user, userPWD);
+
+                //adicionar Utilizador à respetiva ROLE-COLABORADORES
+                if (chkUser.Succeeded)
+                {
+                    var result1 = userManager.AddToRole(user.Id, "Colaboradores");
+                }
+            }
+            //********************************************* FIM ********************************************************
+
+
             //********************************************* INICIO GESTORES *********************************************
             // Criar a role 'GESTORES'
             if (!roleManager.RoleExists("Gestores"))
@@ -107,7 +136,7 @@ namespace InspiringIPT
                     user.EmailConfirmed = true;
                     var chkUser = userManager.Create(user, userPWD);
 
-                    //Adicionar o Utilizador à respetiva Role-Colaborador-
+                    //Adicionar o Utilizador à respetiva Role-Gestores-
                     if (chkUser.Succeeded)
                     {
                         var result1 = userManager.AddToRole(user.Id, "Gestores");

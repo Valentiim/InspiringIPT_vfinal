@@ -100,7 +100,9 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.HabAcademicas, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "Ainda não tenho o 12º ano") Ainda não tenho o 12º ano <br />
                         @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
+                        @Html.RadioButtonFor(model => model.HabAcademicas, "TeSPs") TeSPs<br />
                         @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
                         @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
                         @Html.RadioButtonFor(model => model.HabAcademicas, "Doutoramento") Doutoramento<br />

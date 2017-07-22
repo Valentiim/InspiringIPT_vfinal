@@ -18,7 +18,7 @@
                         <br />
                         @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @autofocus = "", @placeholder = "Introduzir o seu Nome Completo" } })
+                            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = " form-control", @autofocus = "", @placeholder = "*Introduzir o seu Nome Completo" } })
                             @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu E-mail" } })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = " form-control", @placeholder = "*Introduzir o seu E-mail" } })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Concelho, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Concelho, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir o seu Concelho" } })
+                            @Html.EditorFor(model => model.Concelho, new { htmlAttributes = new { @class = " form-control",@placeholder = "*Introduzir o seu Concelho" } })
                             @Html.ValidationMessageFor(model => model.Concelho, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -42,7 +42,9 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = " form-control", @placeholder = "Introduzir  DD/MM/AAAA" } })
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            @Html.EditorFor(model => model.DataNascimento, new { @class = "form-control input-group-addon col-md-8", @id = "datetimepicker1", })
+                            <br />
                             @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -69,6 +71,7 @@
                         <div class="col-md-10">
                             @Html.RadioButtonFor(model => model.HabAcademicas, "ainda não tenho o 12º ano") ainda não tenho o 12º ano <br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "12º ano") 12º ano <br />
+                            @Html.RadioButtonFor(model => model.HabAcademicas, "TeSPs") TeSPs<br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "Licenciatura") Licenciatura<br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "Mestrado") Mestrado<br />
                             @Html.RadioButtonFor(model => model.HabAcademicas, "Doutoramento") Doutoramento<br />
@@ -91,7 +94,7 @@
                                             string cursosEscolhidos = (string)ViewBag.AuxCursos;
                                             foreach (var curso in ViewBag.Cursos)
                                             {
-                                                if (cursosEscolhidos.Contains(curso.CursoID+"")) { selecionado = "selected"; }
+                                                if (cursosEscolhidos.Contains(curso.CursoID + "")) { selecionado = "selected"; }
                                                 else { selecionado = ""; }
                                                 <option value="@curso.CursoID" @selecionado> @curso.NomeCurso</option>
                                             }
@@ -115,7 +118,7 @@
                                         @{ string areasEscolhidas = (string)ViewBag.AuxAreas;
                                             foreach (var area in ViewBag.Areas)
                                             {
-                                                if (areasEscolhidas.Contains(area.AreaID+"")) { selecionado = "selected"; }
+                                                if (areasEscolhidas.Contains(area.AreaID + "")) { selecionado = "selected"; }
                                                 else { selecionado = ""; }
                                                 <option value="@area.AreaID" @selecionado> @area.NomeArea</option>
                                             }
@@ -128,7 +131,7 @@
 
                     @* listagem dos Tipos de Cursos disponíveis no IPT  *@
                     <div class="col-md-4">
-                       
+
                         <table class="table">
                             <tr>
                                 <th>Tipos de Cursos:</th>
@@ -140,7 +143,7 @@
                                         @{ string tiposCursosEscolhidos = (string)ViewBag.AuxTiposCurso;
                                             foreach (var tipocurso in ViewBag.TipoCurso)
                                             {
-                                                if (tiposCursosEscolhidos.Contains(tipocurso.TipoID+"")) { selecionado = "selected"; }
+                                                if (tiposCursosEscolhidos.Contains(tipocurso.TipoID + "")) { selecionado = "selected"; }
                                                 else { selecionado = ""; }
                                                 <option value="@tipocurso.TipoID" @selecionado> @tipocurso.Tipo</option>
                                             }
@@ -153,8 +156,8 @@
 
 
                     @*<br /><br />
-                        e se se apresentasse aqui um Captcha?
-                        <br /><br />*@
+            e se se apresentasse aqui um Captcha?
+            <br /><br />*@
 
                     <div class="form-group">
                         <div class="col-md-offset-4 col-md-10">

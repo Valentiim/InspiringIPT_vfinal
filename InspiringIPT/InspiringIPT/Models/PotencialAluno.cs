@@ -56,18 +56,22 @@ namespace InspiringIPT.Models
         [Column(TypeName = "date")]// formata o tipo de dados na BD
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Inscrição:")]
-        public DateTime DataInscricao { get; set; }  // o '?' torna o preenchimento do atributo facultativo
+        public DateTime DataInscricao { get; set; }  // torna o preenchimento do atributo facultativo
 
-        [Display(Name = "Código de Identificação:")]
+        [Display(Name = "Código Identificação:")]
         public string CodigoIdentificacao { get; set; } // permite aceder aos dados do potencial aluno, se ele souber este código de identificação
 
         //*********************************************************************************************
+
+        [Display(Name = "Curso(s):")]
         //associados o objeto potencial aluno existe uma  lista de objeto Curso
         public virtual ICollection<Cursos> ListaCursos { get; set; }
 
+        [Display(Name = "Área(s):")]
         //associados o objeto potencial aluno existe um objeto outros cursos
         public virtual ICollection<Areas> ListaAreas { get; set; }
 
+        [Display(Name = "Tipo(s) de Curso(s):")]
         //associados o objeto potencial aluno existe um objeto outras areas
         public virtual ICollection<TipoCurso> ListaTipoCurso { get; set; }
     }

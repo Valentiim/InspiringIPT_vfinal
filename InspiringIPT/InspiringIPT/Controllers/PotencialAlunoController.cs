@@ -305,8 +305,6 @@ namespace InspiringIPT.Controllers
                 {
 
                     db.Entry(potencialAluno).State = System.Data.Entity.EntityState.Modified;
-
-                    TempData["SubmitSucess"] = "Obrigado! O seu dado foi alterado com sucesso!";
                     db.SaveChanges();
 
                     return RedirectToAction("DetalhesAluno", new { id = potencialAluno.CodigoIdentificacao });

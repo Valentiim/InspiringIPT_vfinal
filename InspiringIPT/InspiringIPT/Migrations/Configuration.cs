@@ -99,7 +99,11 @@ namespace InspiringIPT.Migrations
                 new TipoCurso  {TipoID = 1, Tipo = "Licenciatura"},
                 new TipoCurso  {TipoID = 2, Tipo = "Mestrado"},
                 new TipoCurso  {TipoID = 3, Tipo = "TeSPs"},
-                new TipoCurso  {TipoID = 4, Tipo = "Pós-Graduação"}
+                new TipoCurso  {TipoID = 4, Tipo = "Doutoramento"},
+                new TipoCurso  {TipoID = 5, Tipo = "12º ano"},
+                new TipoCurso  {TipoID = 6, Tipo = "Ainda não tenho o 12º ano"},
+                new TipoCurso  {TipoID = 7, Tipo = "Grau Académico Superior Estrangeiro"}
+
             };
             tiposcursos.ForEach(tt => context.TipoCurso.AddOrUpdate(t => t.Tipo, tt));
             context.SaveChanges();

@@ -104,21 +104,6 @@ namespace InspiringIPT.Controllers
         [AllowAnonymous]
         public ActionResult Create([Bind(Include = "NomeCompleto,Email,Concelho,DataNascimento,Contacto,Genero,HabAcademicas")] PotencialAluno potencialAluno, int?[] ListaDeCursos, int?[] ListaDeAreas, int?[] ListaDeTipoCurso)
         {
-            //// neste caso não preciso de me preocupar com o ID atribuído ao aluno
-            //int novoID = 0;
-            //try
-            //{
-            //    novoID = db.PotencialAluno.Max(d => d.AlunoID) + 1;
-            //    potencialAluno.AlunoID = novoID;
-            //}
-            //catch (System.Exception)
-            //{
-            //    // a tabela 'PotencialAluno' está vazia
-            //    // não sendo possível devolver o MAX de uma tabela vazia
-            //    // Por isso,
-            //    // vou atribuir 'manualmente' o valor do 'novoID'
-            //    novoID = 1;
-            //}
 
             // vars. auxiliares a serem utilizadas caso haja algum erro, e 
             // tenha se ser reapresentado o formulário ao potencial aluno

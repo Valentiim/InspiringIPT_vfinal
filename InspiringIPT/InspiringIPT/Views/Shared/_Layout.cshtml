@@ -14,24 +14,20 @@
     @Styles.Render("~/Content/bootstrap.css")
     @Styles.Render("~/Content/bootstrap-select.min.css")
 
-   
-
+  
     <meta name="description" content="The description of my page" />
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>*@
-                <nav class="navbar navbar-inverse bg-primary" style="background-color:lightgreen; border-color:lightgreen;">
+             
+               
+                <nav class="brand" style="font-family:Impact,fantasy; color:lightgreen">
                         @Html.ActionLink("Inspiring IPTomar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </nav>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Sobre Nós", "SobreNos", "Home")</li>
                     <li>@Html.ActionLink("A Nossa Equipa", "Equipa", "Home")</li>

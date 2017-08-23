@@ -14,7 +14,6 @@
     @Styles.Render("~/Content/bootstrap.css")
     @Styles.Render("~/Content/bootstrap-select.min.css")
 
-  
     <meta name="description" content="The description of my page" />
 </head>
 <body>
@@ -22,21 +21,20 @@
         <div class="container">
             <div class="navbar-header">
              
-               
                 <nav class="brand" style="font-family:Impact,fantasy; color:lightgreen">
-                        @Html.ActionLink("Inspiring IPTomar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("Inspiring IPTomar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand brand-name" })
                 </nav>
             </div>
-            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-collapse collaps7e" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Sobre Nós", "SobreNos", "Home")</li>
                     <li>@Html.ActionLink("A Nossa Equipa", "Equipa", "Home")</li>
                     <li>@Html.ActionLink("Os Nossos Cursos", "Index", "Cursos")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen; font-family:Verdana, Arial,BolsterBold" aria-haspopup="true" aria-expanded="false">Inscreve-te<span class="caret"></span></a>
+                    <li class="dropdown"> 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen; font-family:Arial Black; font-size:16px" aria-haspopup="true" aria-expanded="false">Inscreve-te<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Efectuar Inscrição", "Create", "PotencialAluno")</li>
-                            <li>@Html.ActionLink("Mudar dados da Inscrição", "EditarAluno", "PotencialAluno")</li>
+                            <li>@Html.ActionLink("Mudar Dados da Inscrição", "EditarAluno", "PotencialAluno")</li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("Notícias", "Noticia", "Home")</li>
@@ -46,7 +44,7 @@
                     @if (User.IsInRole("Colaboradores"))
                     {
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-haspopup="true" aria-expanded="false">Colaborador(a)<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Arial Black; font-size:14px" aria-haspopup="true" aria-expanded="false">Colaborador(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Listar Potenciais Alunos", "Index", "PotencialAluno")</li>
                             </ul>
@@ -58,7 +56,7 @@
 
                     {
                         <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Verdana, Geneva, Tahoma, sans-serif" aria-expanded="false">Gestor(a)<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="color:lightgreen;font-family:Arial Black; font-size:14px" aria-expanded="false">Gestor(a)<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Listar Potenciais Alunos", "Index", "PotencialAluno")</li>
                                 <li>@Html.ActionLink("Listar Cursos", "Index", "Cursos")</li>

@@ -19,44 +19,43 @@ namespace InspiringIPT.Models
         public int CursoID { get; set; }
 
         [Required(ErrorMessage = "Introduzir o Nome do Curso")]
-        [Display(Name = "Cursos")]
+        [Display(Name = "Cursos:")]
         public string NomeCurso { get; set; }
 
         [Required(ErrorMessage = "Introduzir Sigla do Curso")]
-        [Display(Name = "Siglas")]
+        [Display(Name = "Siglas:")]
         public string SiglaCurso { get; set; }
 
         [Required(ErrorMessage = "Introduzir uma Descrição sobre o Curso")]
-        [Display(Name = "Descrição")]
+        [Display(Name = "Descrição:")]
         public string Descricao { get; set; }
 
         // ********************************************************************
-        // criar a chave forasteira, e cria um atributo
+        // criar a chave forasteira, e cria um atributo 
         // relaciona o objeto Cursos com um objeto Área
         [ForeignKey("Areas")]
+        [Display(Name = "Áreas:")]
         [Required(ErrorMessage = "Selecionar uma Área válida")]
         public int AreaFK { get; set; }
-        [Display(Name = "Áreas")]
         public virtual Areas Areas { get; set; }
 
         // criar a chave forasteira
         // cria um atributo para funcionar como FK, na BD
         // e relaciona-o com o atributo anterior
         [ForeignKey("TipoCurso")]
+        [Display(Name = "Tipos de Cursos:")]
         [Required(ErrorMessage = "Selecionar uma um Tipo de Curso")]
         public int TipoCursoFK { get; set; }
-        [Display(Name = "Tipos Cursos")]
         public virtual TipoCurso TipoCurso { get; set; }
 
         // criar a chave forasteira
         // cria um atributo para funcionar como FK, na BD
         // e relaciona-o com o atributo anterior
         [ForeignKey("Escola")]
+        [Display(Name = "Escolas:")]
         [Required(ErrorMessage = "Selecionar uma Escola válida")]
         public int EscolaFK { get; set; }
-        [Display(Name = "Escolas")]
         public virtual Escola Escola { get; set; }
-
 
         // um CURSO tem uma coleção de POTENCIAIS ALUNOS
         public virtual ICollection<PotencialAluno> ListaPotencialAluno { get; set; }

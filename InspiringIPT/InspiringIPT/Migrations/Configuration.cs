@@ -38,7 +38,7 @@ namespace InspiringIPT.Migrations
                 new Imagens {ImagensID = 9, Nome = "Associativismo3.jpg", Categoria = "associativismo", Data = DateTime.Now},
                 new Imagens {ImagensID = 10, Nome = "Associativismo4.jpg", Categoria = "associativismo", Data = DateTime.Now},
                 
-                //*******************************************************BANNER****************************
+                //*******************************************************BANNER*****************************
                 new Imagens {ImagensID = 11, Nome = "banner_1.jpg", Categoria = "banner", Data = DateTime.Now},
                 new Imagens {ImagensID = 12, Nome = "banner_4.jpg", Categoria = "banner", Data = DateTime.Now},
                 new Imagens {ImagensID = 13, Nome = "banner_5.jpg", Categoria = "banner", Data = DateTime.Now},
